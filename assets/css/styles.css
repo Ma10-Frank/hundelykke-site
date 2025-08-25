@@ -180,6 +180,8 @@ input,textarea{
    ========================= */
 .section-head h2{margin:0}
 .cta-row{display:flex;gap:.8rem;flex-wrap:wrap}
+
+
 /* ==== NAV FIX: slå hamburger til tidligere og skjul mobilmenu som standard ==== */
 
 /* Desktop baseline */
