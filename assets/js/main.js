@@ -1,41 +1,25 @@
-// Produktliste
-const products = [
-  { id: 1, name: "Luksus hundeseng", category: "Senge", price: "499 kr", image: "https://placehold.co/300x200?text=Hundeseng" },
-  { id: 2, name: "Robust lædersele", category: "Seler & Liner", price: "299 kr", image: "https://placehold.co/300x200?text=Lædersele" },
-  { id: 3, name: "Keramisk vandskål", category: "Skåle", price: "149 kr", image: "https://placehold.co/300x200?text=Vandskål" },
-  { id: 4, name: "Godbidstaske i stof", category: "Godbidder", price: "99 kr", image: "https://placehold.co/300x200?text=Godbidstaske" },
-  { id: 5, name: "Snusemåtte", category: "Legetøj", price: "179 kr", image: "https://placehold.co/300x200?text=Snusemåtte" },
-  { id: 6, name: "Tyggestang oksehud", category: "Godbidder", price: "39 kr", image: "https://placehold.co/300x200?text=Tyggestang" },
-  { id: 7, name: "Blød hundepude", category: "Senge", price: "349 kr", image: "https://placehold.co/300x200?text=Hundepude" },
-  { id: 8, name: "Kastebold med reb", category: "Legetøj", price: "79 kr", image: "https://placehold.co/300x200?text=Kastebold" }
-];
-
-// Render produkter
-function renderProducts(filter = "Alle") {
-  const container = document.getElementById("product-list");
-  container.innerHTML = "";
-
-  const filtered = filter === "Alle" ? products : products.filter(p => p.category === filter);
-
-  filtered.forEach(product => {
-    const card = document.createElement("div");
-    card.className = "product-card";
-    card.innerHTML = `
-      <img src="${product.image}" alt="${product.name}">
-      <h3>${product.name}</h3>
-      <p class="price">${product.price}</p>
-      <button class="buy-btn">Køb nu</button>
-    `;
-    container.appendChild(card);
+// Mobile nav (valgfrit)
+const navToggle = document.querySelector('.nav-toggle');
+const siteNav = document.querySelector('.site-nav');
+if (navToggle) {
+  navToggle.addEventListener('click', () => {
+    const open = siteNav.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
   });
 }
 
-// Filter knapper
-document.querySelectorAll(".filter-btn").forEach(btn => {
-  btn.addEventListener("click", () => {
-    renderProducts(btn.dataset.category);
-  });
-});
+// Årstal i footer
+const y = document.getElementById('year');
+if (y) y.textContent = new Date().getFullYear();
 
-// Start med alle produkter
-renderProducts();
+// 8 produkter (placeholder-billeder kan skiftes senere)
+const products = [
+  {id:'bed-luxe',       title:'Luksus hundeseng (beige)', price:499, category:'senge',     img:'https://placehold.co/800x600?text=Seng',           meta:'Aftageligt betræk', badge:'Populær'},
+  {id:'bowl-ceramic',   title:'Keramisk vandskål',        price:179, category:'skåle',     img:'https://placehold.co/800x600?text=Keramisk+skål',  meta:'Skridsikker bund'},
+  {id:'harness-set',    title:'Sele & line – sæt',        price:349, category:'seler',     img:'https://placehold.co/800x600?text=Sele+%26+line',  meta:'Flere størrelser'},
+  {id:'toy-rope',       title:'Tovlegetøj – bomuld',      price:79,  category:'legetøj',   img:'https://placehold.co/800x600?text=Leget%C3%B8j',   meta:'Holdbart'},
+  {id:'treats-train',   title:'Træningsgodbidder (små)',  price:49,  category:'godbidder', img:'https://placehold.co/800x600?text=Godbidder',       meta:'Kornfri opskrift'},
+  {id:'toy-plush',      title:'Plys hundebamse (bjørn)',  price:129, category:'legetøj',   img:'https://placehold.co/800x600?text=Plys',            meta:'Ekstra blød'},
+  {id:'bowl-steel',     title:'Vandskål i rustfrit stål', price:89,  category:'skåle',     img:'https://placehold.co/800x600?text=St%C3%A5lsk%C3%A5l', meta:'Tåler opvaskemaskine'},
+  {id:'blanket-fleece', title:'Hunde
+
