@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="da">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hundelykke.dk – Din hunds lykke – uden at sprænge budgettet.</title>
+  <meta name="description" content="Nøje udvalgt og testet hundeudstyr til Danmarks bedste pris. Din hunds lykke – uden at sprænge budgettet.">
+  <meta property="og:title" content="Hundelykke.dk – Din hunds lykke – uden at sprænge budgettet.">
+  <meta property="og:description" content="Nøje udvalgt og testet hundeudstyr til markedets laveste priser.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://placehold.co/1200x630?text=Hundelykke.dk">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#indhold">Spring til indhold</a>
+
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="logo" href="/" aria-label="Hundelykke forside">
+        <img src="assets/img/logo.svg" alt="" width="36" height="36" aria-hidden="true">
+        <span>Hundelykke</span>
+      </a>
+      <button class="nav-toggle" aria-expanded="false" aria-label="Åbn menu">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </button>
+      <nav class="site-nav" aria-label="Hovedmenu">
+        <ul>
+          <li><a href="#produkter">Produkter</a></li>
+          <li><a href="#omos">Om os</a></li>
+          <li><a href="#kontakt">Kontakt</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="indhold">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <h1>Din hunds lykke – <span class="accent">uden at sprænge budgettet</span>.</h1>
+          <p>Vi udvælger og tester alt hundeudstyr, så du får dokumenteret kvalitet – altid til Danmarks bedste pris.</p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="#produkter">Se produkter</a>
+            <a class="btn btn-ghost" href="#omos">Læs om os</a>
+          </div>
+          <ul class="trust">
+            <li>✔ Nøje udvalgt & testet</li>
+            <li>✔ Hurtig levering</li>
+            <li>✔ MobilePay & Apple&nbsp;Pay</li>
+          </ul>
+        </div>
+        <figure class="hero-media">
+          <img src="https://placehold.co/1200x900?text=Hero+billede" alt="Glad hund på lys beige baggrund">
+        </figure>
+      </div>
+    </section>
+
+    <section id="produkter" class="products">
+      <div class="container">
+        <header class="section-head">
+          <h2>Udvalgte produkter</h2>
+          <div class="filters" role="tablist" aria-label="Filtrer produkter">
+            <button class="chip is-active" data-filter="alle" role="tab" aria-selected="true">Alle</button>
+            <button class="chip" data-filter="godbidder" role="tab">Godbidder</button>
+            <button class="chip" data-filter="senge" role="tab">Senge</button>
+            <button class="chip" data-filter="seler" role="tab">Seler & Liner</button>
+            <button class="chip" data-filter="skåle" role="tab">Skåle</button>
+            <button class="chip" data-filter="legetøj" role="tab">Legetøj</button>
+          </div>
+        </header>
+        <div id="productGrid" class="grid"></div>
+      </div>
+    </section>
+
+    <section id="omos" class="about">
+      <div class="container about-grid">
+        <div>
+          <h2>Om Hundelykke</h2>
+          <p>Hos <strong>Hundelykke.dk</strong> mener vi, at det ikke skal være dyrt at have hund i Danmark. Vi tilbyder nøje udvalgte og testede produkter til markedets laveste priser – uden at gå på kompromis med kvaliteten.</p>
+          <p>Bag Hundelykke står en udlært slagter med 37 års erfaring som selvstændig. Den faglige grundighed, kvalitet og ansvarlighed tager vi med i alt, vi gør.</p>
+          <ul class="checklist">
+            <li>Nøje udvalgt og testet sortiment</li>
+            <li>Funktionalitet, holdbarhed og komfort</li>
+            <li>Altid til Danmarks bedste pris</li>
+          </ul>
+        </div>
+        <figure>
+          <img src="https://placehold.co/1200x900?text=Om+os" alt="Beige interiør med hundeudstyr">
+        </figure>
+      </div>
+    </section>
+
+    <section id="kontakt" class="contact">
+      <div class="container contact-grid">
+        <div>
+          <h2>Kontakt</h2>
+          <p>Har du spørgsmål? Skriv til os – vi svarer hurtigt.</p>
+          <ul class="contact-list">
+            <li><strong>E-mail:</strong> <a href="mailto:info@hundelykke.dk">info@hundelykke.dk</a></li>
+          </ul>
+        </div>
+        <form id="contactForm" class="form" action="https://formspree.io/f/your-id" method="POST">
+          <label for="navn">Navn</label>
+          <input id="navn" name="navn" type="text" required>
+          <label for="email">E-mail</label>
+          <input id="email" name="email" type="email" required>
+          <label for="besked">Besked</label>
+          <textarea id="besked" name="besked" rows="5" required></textarea>
+          <button class="btn btn-primary" type="submit">Send</button>
+          <p id="formMsg" class="form-msg" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <a class="logo footer-logo" href="/"><img src="assets/img/logo.svg" alt="" width="28" height="28" aria-hidden="true"><span>Hundelykke</span></a>
+        <p class="small">© <span id="year"></span> Hundelykke.dk – Alle rettigheder forbeholdes.</p>
+      </div>
+      <nav aria-label="Sidefod">
+        <ul class="footer-links">
+          <li><a href="#">Handelsbetingelser</a></li>
+          <li><a href="#">Privatliv & Cookies</a></li>
+          <li><a href="#kontakt">Kontakt</a></li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
