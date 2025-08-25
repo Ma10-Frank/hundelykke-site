@@ -19,13 +19,20 @@
 
   <!-- ========== HEADER: centreret logo + tekst (ét link til forsiden) ========== -->
   <header class="site-header">
-    <div class="container nav-wrap" style="justify-content:center;">
-      <a href="/" class="site-logo" aria-label="Hundelykke forside">
-        <img src="assets/logo.svg" alt="Hundelykke logo">
-        <span>Hundelykke.dk</span>
-      </a>
-    </div>
-  </header>
+  <div class="container nav-wrap">
+    <!-- Logo + tekst -->
+    <a href="/" class="logo-link">
+      <img src="assets/logo.svg" alt="Hundelykke logo" class="site-logo">
+      <span class="site-title">Hundelykke.dk</span>
+    </a>
+
+    <!-- Login knap -->
+    <nav class="user-nav">
+      <a href="#" class="login-btn">Log ind</a>
+    </nav>
+  </div>
+</header>
+
 
   <main id="indhold">
     <!-- ========== HERO ========== -->
