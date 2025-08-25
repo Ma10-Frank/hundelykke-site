@@ -4,26 +4,36 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Hundelykke.dk – Din hunds lykke – uden at sprænge budgettet.</title>
+
   <meta name="description" content="Nøje udvalgt og testet hundeudstyr til Danmarks bedste pris. Din hunds lykke – uden at sprænge budgettet.">
   <meta property="og:title" content="Hundelykke.dk – Din hunds lykke – uden at sprænge budgettet.">
   <meta property="og:description" content="Nøje udvalgt og testet hundeudstyr til markedets laveste priser.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://placehold.co/1200x630?text=Hundelykke.dk">
-  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
   <a class="skip-link" href="#indhold">Spring til indhold</a>
 
+  <!-- ========== HEADER ========== -->
   <header class="site-header">
     <div class="container nav-wrap">
-      <a class="logo" href="/" aria-label="Hundelykke forside">
-        <img src="assets/img/logo.svg" alt="" width="36" height="36" aria-hidden="true">
-        <span>Hundelykke</span>
+      <!-- Logo + tekst (badge + skygge) -->
+      <a href="/" class="logo" aria-label="Hundelykke forside">
+        <span class="logo-badge">
+          <img src="assets/img/logo.svg" alt="Hundelykke logo">
+        </span>
+        <span class="logo-text">Hundelykke.dk</span>
       </a>
+
+      <!-- Hamburger -->
       <button class="nav-toggle" aria-expanded="false" aria-label="Åbn menu">
         <span class="bar"></span><span class="bar"></span><span class="bar"></span>
       </button>
+
+      <!-- Navigation -->
       <nav class="site-nav" aria-label="Hovedmenu">
         <ul>
           <li><a href="#produkter">Produkter</a></li>
@@ -35,6 +45,7 @@
   </header>
 
   <main id="indhold">
+    <!-- ========== HERO ========== -->
     <section class="hero">
       <div class="container hero-grid">
         <div class="hero-copy">
@@ -56,6 +67,7 @@
       </div>
     </section>
 
+    <!-- ========== PRODUKTER ========== -->
     <section id="produkter" class="products">
       <div class="container">
         <header class="section-head">
@@ -73,6 +85,7 @@
       </div>
     </section>
 
+    <!-- ========== OM OS ========== -->
     <section id="omos" class="about">
       <div class="container about-grid">
         <div>
@@ -91,6 +104,7 @@
       </div>
     </section>
 
+    <!-- ========== KONTAKT ========== -->
     <section id="kontakt" class="contact">
       <div class="container contact-grid">
         <div>
@@ -100,6 +114,8 @@
             <li><strong>E-mail:</strong> <a href="mailto:info@hundelykke.dk">info@hundelykke.dk</a></li>
           </ul>
         </div>
+
+        <!-- Simpelt formular-setup (kan skiftes til Formspree el.lign.) -->
         <form id="contactForm" class="form" action="https://formspree.io/f/your-id" method="POST">
           <label for="navn">Navn</label>
           <input id="navn" name="navn" type="text" required>
@@ -114,10 +130,16 @@
     </section>
   </main>
 
+  <!-- ========== FOOTER ========== -->
   <footer class="site-footer">
     <div class="container footer-grid">
       <div>
-        <a class="logo footer-logo" href="/"><img src="assets/img/logo.svg" alt="" width="28" height="28" aria-hidden="true"><span>Hundelykke</span></a>
+        <a class="logo footer-logo" href="/" aria-label="Hundelykke forside">
+          <span class="logo-badge">
+            <img src="assets/img/logo.svg" alt="">
+          </span>
+          <span class="logo-text">Hundelykke.dk</span>
+        </a>
         <p class="small">© <span id="year"></span> Hundelykke.dk – Alle rettigheder forbeholdes.</p>
       </div>
       <nav aria-label="Sidefod">
@@ -133,3 +155,4 @@
   <script src="assets/js/main.js"></script>
 </body>
 </html>
+
