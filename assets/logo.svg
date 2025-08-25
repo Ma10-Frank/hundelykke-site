@@ -81,7 +81,6 @@
   </g>
 </svg>
 
-
 /* Kompakt header og passende logosize */
 .site-header .nav-wrap{ padding:.55rem 0; }
 .logo-link .brand-dot{ height:22px; }
