@@ -111,6 +111,86 @@ a:hover{text-decoration:underline}
 /* Når man hopper til sektioner via #anker */
 :target{scroll-margin-top:80px}
 
+/* ===== HEADER LAYOUT ===== */
+.site-header{
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--bg_alt, #f4efe7); /* din lyse header-baggrund */
+  border-bottom: 1px solid rgba(0,0,0,.05);
+}
+
+.nav-row{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: .6rem 0;            /* gør headeren lavere */
+}
+
+.logo-link{
+  display: inline-flex;
+  align-items: center;
+  gap: .6rem;
+  text-decoration: none;
+}
+
+.site-logo{
+  height: 56px;               /* styrer logostørrelse */
+  width: auto;
+  display: block;
+}
+
+.site-title{
+  font-weight: 800;
+  font-size: 22px;
+  color: var(--green-700, #25453F);
+  letter-spacing: .2px;
+}
+
+/* Tom venstresøjle så logoet kan være visuelt centreret */
+.nav-left{ width: 96px; }      /* cirka samme bredde som login-knap */
+
+/* ===== LOGIN KNAP ===== */
+.btn-login{
+  background-color: #24543F;     /* samme grøn som hjertet */
+  color: #fff;
+  padding: .6rem 1.2rem;
+  border-radius: 10px;
+  font-weight: 650;
+  text-decoration: none;
+  line-height: 1;
+  box-shadow: 0 6px 14px rgba(0,0,0,.25); /* skygge som logoet */
+  transition: transform .15s ease, box-shadow .15s ease, background-color .15s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-login:hover{
+  background-color: #2f6a52;     /* lidt lysere ved hover */
+  box-shadow: 0 8px 18px rgba(0,0,0,.32);
+  transform: translateY(-1px);
+}
+
+.btn-login:active{
+  transform: translateY(0);
+  box-shadow: 0 5px 10px rgba(0,0,0,.24);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 640px){
+  .site-logo{ height: 42px; }
+  .site-title{ font-size: 18px; }
+  .btn-login{
+    padding: .5rem 1rem;
+    border-radius: 9px;
+    font-size: .95rem;
+  }
+  .nav-left{ width: 84px; }
+}
+
+
 /* ===============================
    HERO – fluid desktop → mobil
    =============================== */
