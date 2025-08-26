@@ -128,14 +128,15 @@ a:hover{text-decoration:underline}
   .hero-media{
     height: auto; /* boksen følger billedets naturlige højde */
   }
-  .hero-media img{
-    width: 100%;
-    height: auto;
-    object-fit: contain; /* vis hele billedet */
-    object-position: center;
-    background: #efe6da; /* beige baggrund så det ser pænt ud */
-  }
+ .hero-media img {
+  width: 100%;
+  height: auto;           /* gør højden fleksibel */
+  max-height: 90vh;       /* så billedet aldrig bliver højere end skærmen */
+  object-fit: cover;      /* fyld hele bredden */
+  object-position: center 30%; /* fokus lidt højere i billedet */
+  display: block;
 }
+
 /* =========================
    Produkter
    ========================= */
