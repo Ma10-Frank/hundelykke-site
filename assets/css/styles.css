@@ -121,6 +121,9 @@ a:hover{text-decoration:underline}
   overflow: hidden;
   border-radius: var(--radius);
 }
+.hero-grid .hero-media {
+  grid-column: 1 / -1;  /* få hero-billedet til at fylde alle kolonner */
+}
 
 .hero-media img{
   width: 100%;
