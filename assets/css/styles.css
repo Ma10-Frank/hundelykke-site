@@ -136,6 +136,12 @@ a:hover{text-decoration:underline}
   object-position: center 30%; /* fokus lidt højere i billedet */
   display: block;
 }
+@media (max-width: 640px){
+  .hero-media img {
+    object-position: center top; /* fokusér på toppen på mobil */
+    max-height: 70vh;            /* gør det lidt lavere på små skærme */
+  }
+}
 
 /* =========================
    Produkter
