@@ -1,492 +1,183 @@
-/* =========================
-   Design tokens / base
-   ========================= */
+/* =========================================================
+   Hundelykke.dk – Global stylesheet (ny samlet version)
+   ---------------------------------------------------------
+   - Farver & tokens
+   - Base / typografi / utilities
+   - Header (centreret logo + login i højre side)
+   - Sektioner: hero, produkter, om os, kontakt, footer
+   - Komponenter: knapper, chips, produktkort
+   - Responsivitet
+   ========================================================= */
+
+/* =============== DESIGN TOKENS =============== */
 :root{
-  --bg:#F6F1E9;
-  --bg-alt:#EFE7DC;
-  --text:#2A2A2A;
-  --muted:#6B6B6B;
-  --green-700:#25483F;
-  --green-600:#2F5D50;
-  --white:#fff;
-  --shadow:0 10px 24px rgba(0,0,0,.08);
-  --radius:14px;
-  --maxw:1100px;
+  --bg: #F6F1E9;           /* site baggrund */
+  --bg-alt: #F1EADF;       /* lys header/sektion */
+  --text: #1F1F1F;
+  --muted: #6B6B6B;
+
+  --green-700:#25453F;     /* titel/tekst-grøn */
+  --green-600:#2F6A52;     /* hover grøn */
+  --green-500:#3A7564;     /* lysere grøn */
+  --brand:#24543F;         /* knapper mv. */
+
+  --radius: 14px;
+  --shadow: 0 10px 24px rgba(0,0,0,.08);
+  --shadow-strong: 0 16px 32px rgba(0,0,0,.16);
+
+  --maxw: 1100px;
 }
 
-*{box-sizing:border-box}
-html,body{margin:0;padding:0}
+/* =============== BASE =============== */
+*{ box-sizing: border-box; }
+html,body{ margin:0; padding:0; }
+img{ max-width:100%; height:auto; display:block; }
+
 body{
-  font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-  color:var(--text);
-  background:var(--bg);
-  line-height:1.6;
-}
-img{max-width:100%;display:block}
-h1,h2,h3{font-family:"Playfair Display",Georgia,serif;margin:0 0 .6rem}
-h1{font-size:clamp(2rem,3vw+1rem,3.2rem)}
-a{color:var(--green-600);text-decoration:none}
-a:hover{text-decoration:underline}
-.container{width:min(100% - 2rem,var(--maxw));margin-inline:auto}
-.small{font-size:.95rem;color:var(--muted)}
-.skip-link{position:absolute;left:-9999px}
-
-/* =========================
-   Buttons & filter chips
-   ========================= */
-.btn{
-  display:inline-block;
-  border:1px solid var(--green-600);
-  padding:.9rem 1.1rem;
-  border-radius:999px;
-  font-weight:600;
-  transition:transform .08s;
-  background:transparent;
-  color:var(--green-600);
-  text-decoration:none;
-}
-.btn:hover{transform:translateY(-1px)}
-.btn-primary{background:var(--green-600);color:var(--white)}
-.btn-ghost{background:transparent;color:var(--green-600)}
-.btn-small{padding:.6rem .9rem}
-
-.chip{
-  border:1px solid #cbd5d6;
-  padding:.45rem .8rem;
-  border-radius:999px;
-  background:var(--white);
-  font-weight:600;
-}
-.chip.is-active{border-color:var(--green-600);color:var(--green-700)}
-
-/* =========================
-   Header / navigation
-   ========================= */
-.site-header{
-  position:sticky;
-  top:0;
-  z-index:1000;                     /* altid over indhold */
-  background:#F6F1E9;               /* fast farve for at undgå gennemskin */
-  border-bottom:1px solid rgba(0,0,0,.05);
-  padding-top:max(0px, env(safe-area-inset-top)); /* iPhone notch */
-}
-.nav-wrap{display:flex;align-items:center;justify-content:space-between;padding:.7rem 0}
-.logo{display:flex;align-items:center;gap:.6rem;font-weight:800;color:var(--green-700)}
-.logo img{width:36px;height:36px}
-.logo span{font-size:1.1rem}
-.site-nav ul{display:flex;gap:1.1rem;list-style:none;margin:0;padding:0}
-
-.nav-toggle{display:none;background:none;border:0;padding:.4rem}
-.nav-toggle .bar{display:block;width:24px;height:2px;background:var(--green-700);margin:.32rem 0;border-radius:2px}
-
-/* Mobilmenu */
-@media (max-width:880px){
-  .nav-toggle{display:block}
-  .site-nav{
-    position:fixed; inset:64px 0 auto 0;
-    background:var(--bg);
-    padding:1rem;
-    box-shadow:var(--shadow);
-    transform:translateY(-120%);
-    transition:transform .2s;
-    z-index:1100; /* over header */
-  }
-  .site-nav.open{transform:translateY(0)}
-  .site-nav ul{flex-direction:column}
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color: var(--text);
+  background: radial-gradient(1200px 500px at 50% -100px, rgba(0,0,0,.06), transparent 60%) var(--bg);
+  line-height: 1.55;
 }
 
-/* Små skærme: kompakt top */
-@media (max-width:520px){
-  .nav-wrap{padding:.55rem 0}
-  .logo img{width:32px;height:32px}
-  .logo span{font-size:1.05rem}
-  .hero{padding-top:1rem}
-}
+.container{ width: min(100%, var(--maxw)); margin-inline:auto; padding-inline:1rem; }
 
-/* Ultra-smal: skjul tekst hvis nødvendigt */
-@media (max-width:360px){
-  .logo span{display:none}
-}
+h1,h2,h3{ color: var(--green-700); margin:0 0 .6rem; line-height:1.2; }
+h1{ font-size: clamp(26px, 3.2vw, 38px); font-weight: 800; }
+h2{ font-size: clamp(20px, 2.2vw, 26px); font-weight: 800; }
+h3{ font-size: 18px; font-weight: 700; color: var(--text); }
 
-/* Når man hopper til sektioner via #anker */
-:target{scroll-margin-top:80px}
+p{ margin:0 0 .8rem; }
+.small{ font-size:.9rem; color:var(--muted); }
 
-/* ===== HEADER LAYOUT ===== */
-.site-header{
-  position: sticky;
-  top: 0;
-  z-index: 50;
-  background: var(--bg_alt, #f4efe7); /* din lyse header-baggrund */
-  border-bottom: 1px solid rgba(0,0,0,.05);
-}
+/* Utilities */
+.center{ text-align:center; }
+.m0{ margin:0 !important; }
+.mt1{ margin-top: .5rem; } .mt2{ margin-top: 1rem; } .mt3{ margin-top: 1.5rem; }
+.mb1{ margin-bottom:.5rem; } .mb2{ margin-bottom:1rem; } .mb3{ margin-bottom:1.5rem; }
 
-.nav-row{
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  padding: .6rem 0;            /* gør headeren lavere */
-}
-
-.logo-link{
-  display: inline-flex;
-  align-items: center;
-  gap: .6rem;
-  text-decoration: none;
-}
-
-.site-logo{
-  height: 56px;               /* styrer logostørrelse */
-  width: auto;
-  display: block;
-}
-
-.site-title{
-  font-weight: 800;
-  font-size: 22px;
-  color: var(--green-700, #25453F);
-  letter-spacing: .2px;
-}
-
-/* Tom venstresøjle så logoet kan være visuelt centreret */
-.nav-left{ width: 96px; }      /* cirka samme bredde som login-knap */
-
-/* ===== LOGIN KNAP ===== */
-.btn-login{
-  background-color: #24543F;     /* samme grøn som hjertet */
-  color: #fff;
-  padding: .6rem 1.2rem;
-  border-radius: 10px;
-  font-weight: 650;
-  text-decoration: none;
-  line-height: 1;
-  box-shadow: 0 6px 14px rgba(0,0,0,.25); /* skygge som logoet */
+/* =============== KNAPPER =============== */
+.btn{ 
+  display:inline-flex; align-items:center; justify-content:center; gap:.4rem;
+  background: var(--brand); color:#fff; text-decoration:none; font-weight:700;
+  padding:.8rem 1.2rem; border-radius: 999px; box-shadow: var(--shadow);
   transition: transform .15s ease, box-shadow .15s ease, background-color .15s ease;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
 }
-
-.btn-login:hover{
-  background-color: #2f6a52;     /* lidt lysere ved hover */
-  box-shadow: 0 8px 18px rgba(0,0,0,.32);
-  transform: translateY(-1px);
+.btn:hover{ background: var(--green-600); transform: translateY(-1px); box-shadow: var(--shadow-strong); }
+.btn-outline{
+  background:#fff; color: var(--green-700); border:1px solid rgba(0,0,0,.12);
 }
+.btn-outline:hover{ background:#fbfbfb; }
 
-.btn-login:active{
-  transform: translateY(0);
-  box-shadow: 0 5px 10px rgba(0,0,0,.24);
+/* =============== CHIPS (filterknapper) =============== */
+.chip{
+  appearance:none; border:1px solid rgba(0,0,0,.12); background:#fff; color:var(--text);
+  border-radius: 999px; padding:.5rem .9rem; cursor:pointer; font-weight:600;
+  transition: background .15s ease, color .15s ease, border-color .15s ease;
 }
+.chip.is-active{ background: var(--brand); color:#fff; border-color: transparent; }
 
-/* ===== RESPONSIVE ===== */
-@media (max-width: 640px){
-  .site-logo{ height: 42px; }
-  .site-title{ font-size: 18px; }
-  .btn-login{
-    padding: .5rem 1rem;
-    border-radius: 9px;
-    font-size: .95rem;
-  }
-  .nav-left{ width: 84px; }
-}
-
-
-/* ===============================
-   HERO – fluid desktop → mobil
-   =============================== */
-.hero-media {
-  /* flydende højde baseret på viewport-bredde, men med fornuftig min/max */
-  height: clamp(340px, 58vw, 720px);
-  overflow: hidden;
-  border-radius: var(--radius);
-}
-
-.hero-media img {
-  width: 100%;
-  height: 100%;
-  display: block;
-  object-fit: cover;          /* billedet fylder hele boksen */
-  object-position: 50% 35%;   /* hold fokus lidt højere (hundehoveder) på desktop */
-}
-
-/* tablet */
-@media (max-width: 900px) {
-  .hero-media {
-    height: clamp(320px, 64vw, 620px);
-  }
-  .hero-media img {
-    object-position: 50% 28%; /* løft fokus lidt mere på tablet */
-  }
-}
-
-/* mobil */
-@media (max-width: 640px) {
-  .hero-media {
-    height: auto; /* boksen følger billedets naturlige højde */
-  }
-  .hero-media img {
-    width: 100%;
-    height: auto;
-    object-fit: contain; /* vis hele billedet */
-    object-position: center;
-    background: #efe6da; /* beige letterbox så det matcher designet */
-    display: block;
-  }
-}
-
-/* =========================
-   Produkter
-   ========================= */
-.products{padding:2.8rem 0}
-.section-head{display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-bottom:1rem}
-
-.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
-@media (max-width:1100px){.grid{grid-template-columns:repeat(3,1fr)}}
-@media (max-width:780px){.grid{grid-template-columns:repeat(2,1fr)}}
-@media (max-width:520px){.grid{grid-template-columns:1fr}}
-
-.product{
-  background:var(--white);
-  border-radius:var(--radius);
-  overflow:hidden;
-  box-shadow:var(--shadow);
-  display:flex;
-  flex-direction:column;
-}
-.product .media{aspect-ratio:4/3;background:#f3eee6;display:flex;align-items:center;justify-content:center}
-.product .media img{width:100%;height:100%;object-fit:cover}
-.product .body{padding:.9rem;display:grid;gap:.4rem}
-.price-row{display:flex;align-items:center;justify-content:space-between;margin-top:.2rem}
-.price{font-weight:800}
-.badge{font-size:.8rem;padding:.2rem .45rem;border-radius:999px;background:#E6F4EA;color:#216E39}
-
-/* =========================
-   Om os & Kontakt
-   ========================= */
-.about,.contact{padding:2.8rem 0}
-.about-grid,.contact-grid{display:grid;gap:1.5rem;grid-template-columns:1.1fr .9fr;align-items:center}
-@media (max-width:900px){.about-grid,.contact-grid{grid-template-columns:1fr}}
-
-.form{
-  background:var(--white);
-  padding:1.2rem;
-  border-radius:var(--radius);
-  box-shadow:var(--shadow);
-  display:grid;
-  gap:.6rem;
-}
-input,textarea{
-  width:100%;padding:.8rem;border-radius:10px;border:1px solid #d8d8d8;background:#fffaf6;font:inherit
-}
-
-/* =========================
-   Footer
-   ========================= */
-.site-footer{padding:2rem 0;border-top:1px solid rgba(0,0,0,.08)}
-.footer-grid{display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap}
-
-/* =========================
-   Små forbedringer
-   ========================= */
-.section-head h2{margin:0}
-.cta-row{display:flex;gap:.8rem;flex-wrap:wrap}
-
-
-/* ==== NAV FIX: slå hamburger til tidligere og skjul mobilmenu som standard ==== */
-
-/* Desktop baseline */
-.nav-wrap{display:flex;align-items:center;justify-content:space-between;gap:.6rem;flex-wrap:nowrap}
-.site-nav ul{display:flex;gap:1.1rem;list-style:none;margin:0;padding:0;flex-wrap:nowrap}
-
-/* Hamburger allerede fra 1100px og ned */
-@media (max-width:1100px){
-  .nav-toggle{display:block}
-  .site-nav{
-    position:fixed;
-    left:0; right:0;
-    top:64px;
-    background:var(--bg);
-    padding:1rem;
-    box-shadow:var(--shadow);
-    transform:translateY(-200%);
-    transition:transform .2s ease;
-    z-index:1100;
-  }
-  .site-nav.open{ transform:translateY(0); }
-
-  .site-nav ul{
-    flex-direction:column;
-    gap:.7rem;
-  }
-
-  .nav-wrap{ padding:.55rem 0; }
-  .logo img{ width:32px; height:32px; }
-  .logo span{ font-size:1.05rem; }
-}
-
-@media (max-width:360px){
-  .logo span{ display:none; }
-}
-
-:target{ scroll-margin-top: 80px; }
-
-/* Logo & header tilpasning */
-.site-header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0.8rem 0;
-  background: var(--bg-alt);
-  border-bottom: 1px solid #ddd;
-}
-
-.nav-wrap {
-  width: 100%;
-  max-width: var(--maxw);
-  display: flex;
-  justify-content: space-between; /* logo til venstre, knap til højre */
-  align-items: center;
-  padding: 0 1rem;
-}
-
-.logo-link {
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-}
-
-.site-logo {
-  height: 60px;   /* gør logoet mindre */
-  margin-right: 0.6rem;
-}
-
-.site-title {
-  font-size: 22px;   /* gør teksten større */
-  font-weight: 700;
-  color: var(--green-700);
-}
-
-/* Login knap */
-.login-btn {
-  background: var(--green-600);
-  color: white;
-  padding: 0.5rem 1rem;
-  border-radius: 6px;
-  text-decoration: none;
-  font-weight: 600;
-  transition: background 0.2s ease;
-}
-
-.login-btn:hover {
-  background: var(--green-700);
-}
-
-/* HERO */
-.hero-media{
-  height: clamp(420px, 80vh, 820px);
-  overflow: hidden;
-  margin: 0;
-  border-radius: 20px;
-}
-.hero-media img{
-  width: 100%;
-  height: 100%;
-  display: block;
-  object-fit: cover;
-  object-position: center; /* justér fx: center 30% hvis motivet er højt */
-}
-/* ===== HERO: mobilfix – vis hele billedet uden beskæring ===== */
-@media (max-width: 640px){
-  .hero-media{
-    height: auto !important;              /* container følger billedets højde */
-  }
-  .hero-media img{
-    width: 100% !important;
-    height: auto !important;              /* bevar proportioner */
-    object-fit: contain !important;       /* vis hele billedet */
-    object-position: center !important;
-    max-height: 85vh;                     /* undgå at blive for høj */
-    background: #efe6da;                  /* pæn beige “letterbox” */
-    display: block;
-  }
-}
-/* ====== HEADER BASIS ====== */
+/* =============== HEADER =============== */
 .site-header{
-  position: sticky;
-  top: 0;
-  z-index: 50;
-  background: var(--bg_alt, #f4efe7);
+  position: sticky; top:0; z-index:50;
+  background: var(--bg-alt);
   border-bottom: 1px solid rgba(0,0,0,.06);
 }
-.site-header__row{
-  display: flex;
-  align-items: center;
-  justify-content: space-between;   /* logo til venstre, knap til højre */
-  gap: 1rem;
-  padding: .6rem 1rem;              /* gør headeren slankere */
+.site-header__inner{
+  position: relative;
+  display:flex; align-items:center; justify-content:center;
+  padding:.6rem 1rem;
 }
 
-.logo-link{
-  display: inline-flex;
-  align-items: center;
-  gap: .6rem;
-  text-decoration: none;
+/* Centreret logo + titel */
+.site-header__center{
+  position:absolute; left:50%; transform:translateX(-50%);
+  display:flex; align-items:center; gap:.6rem;
 }
-.site-logo{
-  height: 52px;     /* justér hvis den skal være mindre */
-  width: auto;
-  display: block;
-}
-.site-title{
-  font-weight: 800;
-  font-size: 22px;
-  color: var(--green-700, #25453F);
-  letter-spacing: .2px;
-}
+.logo-link{ display:inline-flex; align-items:center; gap:.6rem; text-decoration:none; }
+.site-logo{ height:48px; width:auto; }
+.site-title{ font-weight:800; font-size:22px; color: var(--green-700); letter-spacing:.2px; }
 
-/* ====== LOGIN-KNAP ====== */
-.btn-login,
-.user-nav a,             /* fallback: hvis din gamle <nav class="user-nav"><a>Log ind</a></nav> stadig findes */
-#btnLogin{               /* fallback: hvis du stadig har id="btnLogin" */
-  background-color: #24543F;     /* samme grøn som hjertet */
-  color: #fff !important;
-  padding: .6rem 1.2rem;
-  border-radius: 10px;
-  font-weight: 650;
-  text-decoration: none;
-  line-height: 1;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  white-space: nowrap;
+/* Login-knap helt til højre */
+.site-header__right{ margin-left:auto; }
+.btn-login{
+  background: var(--brand); color:#fff !important; padding:.6rem 1.2rem; border-radius:10px; font-weight:650;
+  text-decoration:none; line-height:1; white-space:nowrap;
   box-shadow: 0 6px 14px rgba(0,0,0,.25);
   transition: transform .15s ease, box-shadow .15s ease, background-color .15s ease;
 }
+.btn-login:hover{ background: var(--green-600); transform: translateY(-1px); box-shadow: 0 8px 18px rgba(0,0,0,.32); }
 
-.btn-login:hover,
-.user-nav a:hover,
-#btnLogin:hover{
-  background-color: #2f6a52;
-  box-shadow: 0 8px 18px rgba(0,0,0,.32);
-  transform: translateY(-1px);
+/* =============== HERO / TOP =============== */
+.hero{
+  padding: 1.2rem 0 1.6rem;
 }
-.btn-login:active,
-.user-nav a:active,
-#btnLogin:active{
-  transform: translateY(0);
-  box-shadow: 0 5px 10px rgba(0,0,0,.24);
-}
+.hero .kicker{ color:var(--muted); font-weight:700; letter-spacing:.25px; }
+.hero .bullets{ display:flex; flex-wrap:wrap; gap:.8rem 1.2rem; color:var(--muted); font-weight:700; }
 
-/* ====== RESPONSIVE ====== */
+/* =============== PRODUKTER =============== */
+.products{ padding: 1.8rem 0; }
+.section-head{ display:flex; align-items:center; justify-content:space-between; gap:.8rem; margin-bottom:1rem; }
+.filters{ display:flex; gap:.6rem; flex-wrap:wrap; }
+
+/* Grid af produktkort */
+.grid{
+  display:grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+.card{
+  background:#fff; border:1px solid rgba(0,0,0,.06); border-radius: var(--radius);
+  box-shadow: var(--shadow); overflow:hidden;
+  display:flex; flex-direction:column;
+}
+.card .media{ aspect-ratio: 4 / 3; overflow:hidden; }
+.card .media img{ width:100%; height:100%; object-fit:cover; }
+.card .body{ padding: .9rem 1rem 1.1rem; }
+.card .title{ font-weight:800; font-size:1rem; margin-bottom:.25rem; }
+.card .meta{ color:var(--muted); font-size:.9rem; margin-bottom:.4rem; }
+.card .price{ font-weight:800; color:var(--green-700); }
+
+.card .actions{ display:flex; gap:.6rem; margin-top:.6rem; }
+.btn-small{ padding:.55rem .9rem; font-size:.95rem; border-radius:10px; }
+
+/* =============== OM OS =============== */
+.about{ padding: 1.8rem 0; }
+.about-grid{ display:grid; grid-template-columns: 1.2fr .8fr; gap:1.2rem; align-items:start; }
+.about figure{ margin:0; border-radius: var(--radius); overflow:hidden; box-shadow: var(--shadow); }
+
+/* =============== KONTAKT =============== */
+.contact{ padding: 1.8rem 0; }
+.form{
+  background:#fff; padding:1.2rem; border-radius: var(--radius);
+  box-shadow: var(--shadow); display:grid; gap:.6rem;
+}
+.form label{ font-weight:700; font-size:.95rem; }
+.form input, .form textarea{
+  width:100%; padding:.8rem; border-radius:10px; border:1px solid #d8d8d8; background:#fff6f6;
+}
+.btn-primary{ composes: btn; } /* (vendt til almindelig .btn i HTML) */
+
+/* =============== FOOTER =============== */
+.site-footer{ padding: 2rem 0; border-top:1px solid rgba(0,0,0,.08); }
+.footer-grid{ display:flex; align-items:center; justify-content:space-between; gap:1rem; flex-wrap:wrap; }
+.footer-links{ list-style:none; padding:0; margin:0; display:flex; gap:1rem; }
+.footer-logo{ display:inline-flex; align-items:center; gap:.5rem; text-decoration:none; color:var(--text); }
+
+/* =============== RESPONSIVITET =============== */
+@media (max-width: 920px){
+  .grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .about-grid{ grid-template-columns: 1fr; }
+}
 @media (max-width: 640px){
-  .site-logo{ height: 42px; }
-  .site-title{ font-size: 18px; }
-  .btn-login,
-  .user-nav a,
-  #btnLogin{
-    padding: .5rem 1rem;
-    border-radius: 9px;
-    font-size: .95rem;
-  }
+  .site-logo{ height:42px; } 
+  .site-title{ font-size:18px; }
+  .btn-login{ padding:.5rem 1rem; border-radius:9px; font-size:.95rem; }
+
+  .grid{ grid-template-columns: 1fr; }
+  .filters{ gap:.5rem; }
+  .section-head{ flex-direction:column; align-items:flex-start; gap:.6rem; }
+  .hero{ padding: .8rem 0 1.2rem; }
 }
+
 
