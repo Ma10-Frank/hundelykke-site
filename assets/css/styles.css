@@ -138,11 +138,13 @@ a:hover{text-decoration:underline}
 
 /* mobil */
 @media (max-width: 640px){
-  /* gør heroen lidt højere i forhold til skærmen og løft fokus yderligere */
-  .hero-media{ height: clamp(300px, 68vh, 520px); }
-  .hero-media img{ object-position: 50% 20%; }  /* undgå at toppen klippes */
-}
-
+  .hero-media{ height: auto; }
+  .hero-media img{
+    height: auto;
+    object-fit: contain;      /* vis hele billedet */
+    object-position: center;
+    background: #efe6da;      /* beige “letterbox” som matcher designet */
+  }
 
 /* =========================
    Produkter
