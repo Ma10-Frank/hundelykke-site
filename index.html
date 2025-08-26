@@ -20,20 +20,24 @@
   <a class="skip-link" href="#indhold">Spring til indhold</a>
 
 <!-- ========== HEADER: centreret logo + tekst (ét link til forsiden) ========== -->
-<header class="site-header">
-  <div class="container nav-wrap">
-    <!-- Logo + tekst -->
-    <a href="/" class="logo-link">
-      <img src="assets/logo.svg" alt="Hundelykke logo" class="site-logo">
+<header class="site-header" role="banner">
+  <div class="container nav-row">
+    <!-- venstre spacer for ægte centrering -->
+    <div class="nav-left" aria-hidden="true"></div>
+
+    <!-- logo + tekst (link til forsiden) -->
+    <a href="/" class="logo-link" aria-label="Gå til forsiden">
+      <img src="assets/logo.svg" alt="Hundelykke logo" class="site-logo" />
       <span class="site-title">Hundelykke.dk</span>
     </a>
 
-    <!-- Login (tilbage til simpel tekst-link, ingen knap-styling) -->
-    <nav class="user-nav">
-      <a href="#" id="btnLogin">Log ind</a>
+    <!-- login-knap til højre -->
+    <nav class="nav-right" aria-label="Bruger">
+      <a href="#login" class="btn-login">Log ind</a>
     </nav>
   </div>
 </header>
+
 
 <main id="indhold">
   <!-- ========== HERO ========== -->
