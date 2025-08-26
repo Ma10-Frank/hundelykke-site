@@ -111,37 +111,38 @@ a:hover{text-decoration:underline}
 /* Når man hopper til sektioner via #anker */
 :target{scroll-margin-top:80px}
 
-/* =========================
-   Hero
-   ========================= */
-.hero{
-  padding:2rem 0 3.5rem;
-  background:radial-gradient(1200px 400px at 10% 10%, #ffffff 0%, var(--bg) 60%), var(--bg);
+/* ==============================
+   HERO — fluid desktop → mobil
+   ============================== */
+
+.hero-media{
+  /* flydende højde baseret på viewport-bredde, men med fornuftig min/max */
+  height: clamp(340px, 58vw, 720px);
+  overflow: hidden;
+  border-radius: var(--radius);
 }
-.hero-grid{display:grid;gap:2rem;grid-template-columns:1.1fr .9fr;align-items:center}
-.hero .accent{color:var(--green-600)}
-.trust{display:flex;gap:1rem;list-style:none;padding:0;margin:1rem 0 0;color:var(--muted);flex-wrap:wrap}
-.hero-media img{border-radius:var(--radius);box-shadow:var(--shadow)}
-@media (max-width:900px){.hero-grid{grid-template-columns:1fr}}
-/* Mobil: vis hele billedet uden beskæring */
-@media (max-width: 640px){
-  .hero-media{
-    height: auto; /* boksen følger billedets naturlige højde */
-  }
- .hero-media img {
+
+.hero-media img{
   width: 100%;
-  height: auto;           /* gør højden fleksibel */
-  max-height: 90vh;       /* så billedet aldrig bliver højere end skærmen */
-  object-fit: cover;      /* fyld hele bredden */
-  object-position: center 30%; /* fokus lidt højere i billedet */
+  height: 100%;
   display: block;
+  object-fit: cover;          /* fyld boksen */
+  object-position: 50% 35%;   /* hold fokus lidt højere (hundehoveder) på desktop */
 }
+
+/* tablet */
+@media (max-width: 900px){
+  .hero-media{ height: clamp(320px, 64vw, 620px); }
+  .hero-media img{ object-position: 50% 28%; }  /* løft fokus lidt mere */
+}
+
+/* mobil */
 @media (max-width: 640px){
-  .hero-media img {
-    object-position: center top; /* fokusér på toppen på mobil */
-    max-height: 70vh;            /* gør det lidt lavere på små skærme */
-  }
+  /* gør heroen lidt højere i forhold til skærmen og løft fokus yderligere */
+  .hero-media{ height: clamp(300px, 68vh, 520px); }
+  .hero-media img{ object-position: 50% 20%; }  /* undgå at toppen klippes */
 }
+
 
 /* =========================
    Produkter
