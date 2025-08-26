@@ -410,5 +410,83 @@ input,textarea{
     display: block;
   }
 }
+/* ====== HEADER BASIS ====== */
+.site-header{
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--bg_alt, #f4efe7);
+  border-bottom: 1px solid rgba(0,0,0,.06);
+}
+.site-header__row{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;   /* logo til venstre, knap til højre */
+  gap: 1rem;
+  padding: .6rem 1rem;              /* gør headeren slankere */
+}
+
+.logo-link{
+  display: inline-flex;
+  align-items: center;
+  gap: .6rem;
+  text-decoration: none;
+}
+.site-logo{
+  height: 52px;     /* justér hvis den skal være mindre */
+  width: auto;
+  display: block;
+}
+.site-title{
+  font-weight: 800;
+  font-size: 22px;
+  color: var(--green-700, #25453F);
+  letter-spacing: .2px;
+}
+
+/* ====== LOGIN-KNAP ====== */
+.btn-login,
+.user-nav a,             /* fallback: hvis din gamle <nav class="user-nav"><a>Log ind</a></nav> stadig findes */
+#btnLogin{               /* fallback: hvis du stadig har id="btnLogin" */
+  background-color: #24543F;     /* samme grøn som hjertet */
+  color: #fff !important;
+  padding: .6rem 1.2rem;
+  border-radius: 10px;
+  font-weight: 650;
+  text-decoration: none;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  box-shadow: 0 6px 14px rgba(0,0,0,.25);
+  transition: transform .15s ease, box-shadow .15s ease, background-color .15s ease;
+}
+
+.btn-login:hover,
+.user-nav a:hover,
+#btnLogin:hover{
+  background-color: #2f6a52;
+  box-shadow: 0 8px 18px rgba(0,0,0,.32);
+  transform: translateY(-1px);
+}
+.btn-login:active,
+.user-nav a:active,
+#btnLogin:active{
+  transform: translateY(0);
+  box-shadow: 0 5px 10px rgba(0,0,0,.24);
+}
+
+/* ====== RESPONSIVE ====== */
+@media (max-width: 640px){
+  .site-logo{ height: 42px; }
+  .site-title{ font-size: 18px; }
+  .btn-login,
+  .user-nav a,
+  #btnLogin{
+    padding: .5rem 1rem;
+    border-radius: 9px;
+    font-size: .95rem;
+  }
 }
 
