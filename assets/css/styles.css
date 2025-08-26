@@ -307,4 +307,19 @@ input,textarea{
   object-fit: cover;
   object-position: center; /* justér fx: center 30% hvis motivet er højt */
 }
+/* ===== HERO: mobilfix – vis hele billedet uden beskæring ===== */
+@media (max-width: 640px){
+  .hero-media{
+    height: auto !important;              /* container følger billedets højde */
+  }
+  .hero-media img{
+    width: 100% !important;
+    height: auto !important;              /* bevar proportioner */
+    object-fit: contain !important;       /* vis hele billedet */
+    object-position: center !important;
+    max-height: 85vh;                     /* undgå at blive for høj */
+    background: #efe6da;                  /* pæn beige “letterbox” */
+    display: block;
+  }
+}
 
