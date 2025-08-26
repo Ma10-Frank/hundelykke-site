@@ -123,7 +123,19 @@ a:hover{text-decoration:underline}
 .trust{display:flex;gap:1rem;list-style:none;padding:0;margin:1rem 0 0;color:var(--muted);flex-wrap:wrap}
 .hero-media img{border-radius:var(--radius);box-shadow:var(--shadow)}
 @media (max-width:900px){.hero-grid{grid-template-columns:1fr}}
-
+/* Mobil: vis hele billedet uden beskæring */
+@media (max-width: 640px){
+  .hero-media{
+    height: auto; /* boksen følger billedets naturlige højde */
+  }
+  .hero-media img{
+    width: 100%;
+    height: auto;
+    object-fit: contain; /* vis hele billedet */
+    object-position: center;
+    background: #efe6da; /* beige baggrund så det ser pænt ud */
+  }
+}
 /* =========================
    Produkter
    ========================= */
