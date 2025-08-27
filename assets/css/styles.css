@@ -1,29 +1,50 @@
 /* ===== Farver & baser ===== */
 :root{
-  --bg: #F3EBDD;          /* beige */
-  --text: #0f172a;        /* mørk neutral */
-  --muted: #5b6270;       /* afdæmpet tekst */
-  --brand: #1f6b57;       /* grøn (logo) */
+  --bg: #F3EBDD;            /* beige baggrund */
+  --text: #0f172a;          /* mørk neutral tekst */
+  --muted: #5b6270;         /* afdæmpet grå tekst */
+  --brand: #1f6b57;         /* grøn (logo/knapper) */
   --brand-ghost: rgba(31,107,87,.12);
 
   --radius: 18px;
   --shadow: 0 12px 28px rgba(0,0,0,.08);
 }
 
-*{ box-sizing: border-box; }
-html,body{
-  margin:0; padding:0;
-  background: var(--bg);
+*{
+  box-sizing: border-box;
+}
+
+html, body{
+  margin: 0;
+  padding: 0;
+  background: var(--bg);        /* beige som baggrund */
   color: var(--text);
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
-img{ display:block; max-width:100%; height:auto; }
 
-.hlk-wrap{ width: min(1200px, 92vw); margin-inline: auto; }
-.hlk-section{ padding: clamp(32px, 6vw, 64px) 0; }
-.hlk-lede{ font-size: clamp(1.05rem, 1.9vw, 1.2rem); color: var(--muted); max-width: 70ch; }
+img{
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Layout hjælper */
+.hlk-wrap{
+  width: min(1200px, 92vw);
+  margin-inline: auto;
+}
+.hlk-section{
+  padding: clamp(32px, 6vw, 64px) 0;
+  background: transparent;   /* sektioner følger body baggrund */
+}
+.hlk-lede{
+  font-size: clamp(1.05rem, 1.9vw, 1.2rem);
+  color: var(--muted);
+  max-width: 70ch;
+}
+
 
 /* ===== Header: 3 kolonner (login | brand | spacer) ===== */
 .hlk-header{
