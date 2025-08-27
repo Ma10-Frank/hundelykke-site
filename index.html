@@ -1,59 +1,48 @@
 <!DOCTYPE html>
 <html lang="da">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Hundelykke.dk</title>
 
   <!-- Favicon -->
-  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml"/>
 
-  <!-- Stylesheet -->
-  <link rel="stylesheet" href="./assets/styles.css">
+  <!-- Stylesheet SKAL ligge i <head> -->
+  <link rel="stylesheet" href="./assets/styles.css"/>
 
-  <!-- Beige overrides (skal ligge sidst i <head>) -->
+  <!-- Beige overrides (sidst i <head>) -->
   <style>
     :root { --beige-50:#F5EFE6; --text-900:#0f172a; }
-    html,body {
-      background:var(--beige-50) !important;
-      color:var(--text-900) !important;
-      margin:0; padding:0;
-      font-family: Arial, Helvetica, sans-serif;
-    }
-    header,nav {
-      background:var(--beige-50) !important;
-      box-shadow:none !important;
-    }
-    main, section {
-      background:transparent !important;
-    }
+    html, body { background:var(--beige-50); color:var(--text-900); }
   </style>
 </head>
 <body>
 
-  <!-- ========= HEADER ========= -->
+  <!-- ===== HEADER ===== -->
   <header class="site-header">
     <div class="container nav-wrap">
-      <!-- Logo -->
       <a href="/" class="logo-link">
-        <img src="assets/logo.svg" alt="Hundelykke logo" class="site-logo">
+        <img src="assets/logo.svg" alt="Hundelykke logo" class="site-logo"/>
         <span class="site-title">Hundelykke.dk</span>
       </a>
 
-      <!-- Login til højre -->
       <nav class="user-nav">
-        <a href="#" class="login-btn" id="btnLogin">Log ind</a>
+        <a href="#" class="btn btn-ghost" id="btnLogin">Log ind</a>
       </nav>
     </div>
   </header>
 
-  <!-- ========= HERO ========= -->
+  <!-- ===== MAIN ===== -->
   <main id="indhold">
-    <section class="hero">
-      <div class="container hero-grid">
-        <img src="assets/faerdighero.jpg" alt="Hero billede" class="hero-img">
 
-        <div class="hero-text">
+    <!-- ===== HERO ===== -->
+    <section class="hero">
+      <div class="hero-media">
+        <!-- Brug dit rigtige hero-billede her -->
+        <img src="assets/faerdighero.jpg" alt="Glade hunde og nordisk interiør" class="hero-img"/>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
           <h1>Velkommen til Hundelykke</h1>
           <p>Luksus hundeudstyr i nordisk stil – leveret hurtigt til hele Danmark.</p>
           <a href="#produkter" class="btn">Shop nu</a>
@@ -61,24 +50,41 @@
       </div>
     </section>
 
-    <!-- ========= PRODUKTER ========= -->
-    <section id="produkter">
-      <h2>Udvalgte produkter</h2>
-      <div class="product-grid">
-        <div class="card product-card">
-          <img src="assets/produkt1.jpg" alt="Produkt 1">
-          <h3>Produkt 1</h3>
-        </div>
-        <div class="card product-card">
-          <img src="assets/produkt2.jpg" alt="Produkt 2">
-          <h3>Produkt 2</h3>
+    <!-- ===== PRODUKTER ===== -->
+    <section id="produkter" class="section">
+      <div class="container">
+        <h2>Udvalgte produkter</h2>
+        <div class="product-grid">
+          <article class="card product-card">
+            <div class="card-media">
+              <img src="assets/produkt1.jpg" alt="Produkt 1"/>
+            </div>
+            <div class="card-body">
+              <h3>Produkt 1</h3>
+              <p class="price">DKK 299</p>
+              <button class="btn btn-sm">Læg i kurv</button>
+            </div>
+          </article>
+
+          <article class="card product-card">
+            <div class="card-media">
+              <img src="assets/produkt2.jpg" alt="Produkt 2"/>
+            </div>
+            <div class="card-body">
+              <h3>Produkt 2</h3>
+              <p class="price">DKK 349</p>
+              <button class="btn btn-sm">Læg i kurv</button>
+            </div>
+          </article>
         </div>
       </div>
     </section>
+
   </main>
 
 </body>
 </html>
+
 
 
 
