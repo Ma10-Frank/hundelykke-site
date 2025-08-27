@@ -68,38 +68,65 @@ img{ display:block; max-width:100%; height:auto; }
 .hlk-btn-ghost:hover{ background:var(--brand-ghost); }
 
 /* ===== Hero ===== */
-.hlk-hero{ padding-top:8px; }
-.hlk-hero-media{
-  width:min(1200px, 94vw); margin-inline:auto;
-  position:relative; border-radius:22px; overflow:hidden; box-shadow:var(--shadow);
+.hlk-hero {
+  padding-top: 8px;
 }
-.hlk-hero-img{
-  width:100%; height:clamp(280px, 44vw, 460px);
-  object-fit:cover; object-position:center;
-}
-.hlk-hero-overlay{ position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,.32), rgba(0,0,0,.06)); }
-.hlk-hero-content{
-  position:absolute; inset:0; display:grid; place-items:center;
-  text-align:center; color:#fff; padding:0 16px;
-}
-.hlk-hero-content h1{ margin:0 0 6px; font-size:clamp(1.6rem, 4.5vw, 3rem); line-height:1.1; }
-.hlk-hero-content p{ margin:0 0 14px; font-size:clamp(1rem, 2vw, 1.125rem); }
 
-/* ===== Produkter ===== */
-h2{ font-size:clamp(1.3rem, 2.6vw, 1.8rem); margin:0 0 18px; }
-.hlk-grid{
-  display:grid; gap:18px;
-  grid-template-columns: repeat(auto-fill, minmax(230px,1fr));
+.hlk-hero-media {
+  width: min(1200px, 94vw);
+  margin-inline: auto;
+  position: relative;
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
 }
-.hlk-card{
-  background:#fff; border-radius:var(--radius); box-shadow:var(--shadow);
-  overflow:hidden; display:grid; grid-template-rows:auto 1fr;
+
+/* Hero billede – responsivt */
+.hlk-hero-img {
+  width: 100%;
+  height: auto;             /* bevar proportionerne */
+  max-height: 75vh;         /* fylder aldrig mere end 75% af skærmhøjden */
+  object-fit: cover;        /* beskær blidt hvis nødvendigt */
+  object-position: center;  /* fokus i midten */
+  display: block;
 }
-.hlk-card-media img{ width:100%; height:200px; object-fit:cover; object-position:center; }
-.hlk-card-body{ padding:14px; display:grid; gap:8px; }
-.hlk-card-body h3{ margin:2px 0; font-size:1.05rem; }
-.hlk-subtle{ color:var(--muted); font-size:.97rem; }
-.hlk-price{ font-weight:800; }
+
+/* Overlay */
+.hlk-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,.32), rgba(0,0,0,.06));
+}
+
+/* Tekst i hero */
+.hlk-hero-content {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  color: #fff;
+  padding: 0 16px;
+}
+
+.hlk-hero-content h1 {
+  margin: 0 0 6px;
+  font-size: clamp(1.6rem, 4.5vw, 3rem);
+  line-height: 1.1;
+}
+.hlk-hero-content p {
+  margin: 0 0 14px;
+  font-size: clamp(1rem, 2vw, 1.125rem);
+}
+
+/* Mobil tilpasning */
+@media (max-width: 768px) {
+  .hlk-hero-img {
+    max-height: 50vh;          /* lavere højde på små skærme */
+    object-position: center top; /* viser mere af toppen */
+  }
+}
+
 
 /* ===== About ===== */
 .hlk-about .hlk-about-grid{
