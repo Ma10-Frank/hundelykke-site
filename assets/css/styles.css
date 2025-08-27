@@ -1,146 +1,106 @@
-/* ===== Reset og basis ===== */
-*{ box-sizing:border-box; margin:0; padding:0; }
-body{ font-family:sans-serif; line-height:1.5; color:#333; background:#fff; }
-a{ color:inherit; }
-
-/* ===== Container ===== */
-.container{ max-width:1200px; margin:0 auto; padding:0 1rem; }
-
-/* ===== Header ===== */
-.site-header{ background:#fff; border-bottom:1px solid #eee; }
-.nav-wrap{ display:flex; justify-content:space-between; align-items:center; padding:1rem 0; }
-.logo-link{ display:flex; align-items:center; gap:.5rem; text-decoration:none; }
-.site-logo{ height:40px; }
-.site-title{ font-size:1.25rem; font-weight:700; }
-
-/* Login knap */
-.login-btn{
-  display:inline-block;
-  background:#2d6a4f;
-  color:#fff;
-  padding:.5rem 1.1rem;
-  border-radius:8px;
-  text-decoration:none;
-  font-weight:600;
-  font-size:.95rem;
-  transition:background .2s;
-}
-.login-btn:hover{ background:#1b4332; }
-/* Header layout */
-.nav-wrap{
-  display: flex;
-  align-items: center;
-  justify-content: space-between; /* logo til venstre, login til højre */
-  gap: 1rem;
-}
-.login-btn{
-  display:inline-block;
-  background:#2d6a4f;
-  color:#fff;
-  padding:.5rem 1.1rem;
-  border-radius:8px;
-  text-decoration:none;
-  font-weight:600;
-  font-size:.95rem;
-  line-height:1;
-  transition:background .2s ease;
-}
-.login-btn:hover{ background:#1b4332; }
-
-/* sikkerhedsnet: skub navigationen helt til højre */
-.user-nav{ margin-left: auto; }
-
-/* Logo-linje */
-.logo-link{
-  display:flex;
-  align-items:center;
-  gap:.5rem;
-  text-decoration:none;
-}
-.site-logo{ height:40px; }
-.site-title{ font-weight:700; font-size:1.25rem; white-space:nowrap; }
-
-/* ===== Hero ===== */
-.hero{ position:relative; margin-bottom:2rem; }
-.hero-media{ height:clamp(340px,58vw,720px); overflow:hidden; border-radius:var(--radius,12px); }
-.hero-media img{ width:100%; height:100%; object-fit:cover; object-position:50% 35%; display:block; }
-
-/* CTA overlay */
-.hero-cta{ position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; color:#fff; padding:1rem; }
-.hero-cta h1{ font-size:clamp(28px,5vw,56px); margin-bottom:.5rem; text-shadow:0 2px 18px rgba(0,0,0,.35); }
-.hero-cta p{ max-width:600px; font-size:clamp(14px,2.2vw,20px); margin-bottom:1rem; text-shadow:0 1px 14px rgba(0,0,0,.35); }
-.btn-cta{ background:#fff; color:#1f2937; padding:.8rem 1.2rem; border-radius:14px; font-weight:600; text-decoration:none; }
-.btn-cta:hover{ background:#f0f0f0; }
-
-/* Mobiljustering hero */
-@media(max-width:640px){
-  .hero-media{ height:auto; }
-  .hero-media img{ height:auto; object-fit:contain; background:#efe6da; }
-  .hero-cta{ position:static; margin-top:1rem; color:#333; text-shadow:none; }
-}
-
-/* ===== Produkter ===== */
-.products{ margin:2rem auto; }
-.products h2{ text-align:center; margin-bottom:1rem; }
-.product-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:1rem; }
-.product-card{ background:#fafafa; border:1px solid #eee; border-radius:10px; padding:1rem; text-decoration:none; color:inherit; transition:transform .2s, box-shadow .2s; display:flex; flex-direction:column; align-items:center; }
-.product-card img{ width:100%; height:200px; object-fit:cover; border-radius:8px; margin-bottom:.5rem; }
-.product-card:hover{ transform:translateY(-3px); box-shadow:0 4px 14px rgba(0,0,0,.1); }
-.product-card h3{ margin:.5rem 0; font-size:1.1rem; }
-
-/* ===== Om ===== */
-.about{ margin:3rem auto; text-align:center; max-width:800px; }
-
-/* ===== Kontakt ===== */
-.contact{ background:#f8f8f8; padding:2rem 1rem; margin-top:3rem; }
-.contact .container{ text-align:center; }
-.contact h2{ margin-bottom:.5rem; }
-.contact a{ color:#2d6a4f; text-decoration:none; font-weight:600; }
-.contact a:hover{ text-decoration:underline; }
-
-@media (max-width: 420px){
-  .site-title{ font-size:1rem; }   /* lidt mindre titel */
-  .site-logo{ height:32px; }
-  .login-btn{ padding:.45rem .9rem; font-size:.9rem; }
-}
-
-/* ultra-smal: hvis der stadig mangler plads, kan vi skjule teksten */
-@media (max-width: 340px){
-  .site-title{ display:none; }
-}
-
-/* === Hundelykke tema - beige overrides === */
+/* ====== Base + tema ====== */
 :root{
-  --beige-50: #F5EFE6;   /* baggrund */
-  --text-900: #0f172a;   /* mørk tekst */
+  --beige-50:#F5EFE6;
+  --text-900:#0f172a;
+  --brand:#1f6b57;      /* grøn fra dit logo */
+  --radius:16px;
 }
 
-/* Global baggrund + tekst */
-html, body{
-  background-color: var(--beige-50) !important;
-  color: var(--text-900) !important;
+*{ box-sizing:border-box; }
+html,body{
+  margin:0;
+  padding:0;
+  background:var(--beige-50);
+  color:var(--text-900);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  line-height:1.5;
 }
+img{ max-width:100%; height:auto; display:block; } /* ← forhindrer kæmpe billeder */
 
-/* Header og navigation */
-header, .header, nav, .navbar{
-  background-color: var(--beige-50) !important;
-  box-shadow: none !important;
-}
+/* ====== Layout helpers ====== */
+.container{ width:min(1200px, 92vw); margin-inline:auto; }
+.section{ padding:48px 0; }
 
-/* Sektioner følger body (ingen hvid blok) */
-main, .page, .container, section{
-  background-color: transparent !important;
+/* ====== Header ====== */
+.site-header{
+  background:var(--beige-50);
+  position:sticky; top:0; z-index:50;
+  border-bottom:1px solid rgba(0,0,0,.06);
 }
+.nav-wrap{
+  display:flex; align-items:center; justify-content:space-between;
+  padding:12px 0;
+}
+.logo-link{ display:flex; align-items:center; gap:12px; text-decoration:none; color:inherit; }
+.site-logo{ width:42px; height:auto; }
+.site-title{ font-weight:700; font-size:1.125rem; }
 
-/* Hero må ikke have hvid baggrund */
-.hero, .hero-section, .hero-wrapper{
-  background: transparent !important;
+/* ====== Buttons ====== */
+.btn{
+  display:inline-block;
+  padding:12px 18px;
+  border-radius:999px;
+  background:var(--brand);
+  color:#fff;
+  border:0; text-decoration:none;
+  font-weight:600;
 }
+.btn:hover{ filter:brightness(.95); }
+.btn-sm{ padding:8px 14px; font-size:.9rem; }
+.btn-ghost{
+  background:transparent; color:var(--brand); border:1px solid var(--brand);
+}
+.btn-ghost:hover{ background:rgba(31,107,87,.08); }
 
-/* (Valgfrit) Produktkort kan godt være hvide ovenpå beige */
-.card, .product-card, .card--product{
-  background: #ffffff !important;
-  border-radius: 16px;
-  box-shadow: 0 8px 24px rgba(0,0,0,.06);
+/* ====== Hero ====== */
+.hero{ padding:24px 0 0; }
+.hero-media{
+  width:min(1200px, 94vw);
+  margin-inline:auto;
+  position:relative;
+  border-radius:20px;
+  overflow:hidden;
 }
+.hero-img{
+  width:100%;
+  height:420px;               /* desktop-højde */
+  object-fit:cover;
+  object-position:center;
+}
+@media (max-width:768px){
+  .hero-img{ height:320px; }  /* mobil-højde */
+}
+.hero-overlay{
+  position:absolute; inset:0;
+  background:rgba(0,0,0,.18);
+}
+.hero-content{
+  position:absolute; inset:0;
+  display:grid; place-items:center;
+  text-align:center; padding:0 18px; color:#fff;
+}
+.hero-content h1{
+  margin:0 0 8px 0; font-size:clamp(1.6rem, 3.5vw, 3rem);
+}
+.hero-content p{ margin:0 0 16px 0; font-size:clamp(1rem, 2vw, 1.125rem); }
+
+/* ====== Products ====== */
+h2{ font-size:1.6rem; margin:8px 0 18px 0; }
+.product-grid{
+  display:grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap:18px;
+}
+.card{
+  background:#fff;
+  border-radius:var(--radius);
+  box-shadow:0 10px 28px rgba(0,0,0,.06);
+  overflow:hidden;
+}
+.card-media img{
+  width:100%; height:200px; object-fit:cover; object-position:center;
+}
+.card-body{ padding:14px; }
+.price{ font-weight:700; margin:6px 0 12px 0; }
+
 
