@@ -185,5 +185,42 @@ p{ margin:0 0 .8rem; }
   .filters{ gap:.5rem; }
   .section-head{ flex-direction:column; align-items:flex-start; gap:.6rem; }
 }
+/* ===========================================
+   HEADER-TWEAKS: højere header + mindre login på mobil
+   (placér nederst i styles.css)
+   =========================================== */
+
+/* Desktop/tablet: header lidt højere */
+.site-header__inner{
+  padding: 1rem 1.25rem;         /* før var ~0.6rem – giver lidt mere højde */
+}
+.site-logo{
+  height: 56px;                  /* før 48px -> logo lidt større = højere header */
+}
+.site-title{
+  font-size: 24px;               /* lidt større for bedre balance */
+}
+
+/* Mobil ≤ 640px: gør login-knappen mindre */
+@media (max-width: 640px){
+  .site-header__inner{ padding: .7rem 1rem; }         /* lidt lavere padding på selve headeren */
+  .site-logo{ height: 42px; }                         /* samme som før i din fil */
+  .site-title{ font-size: 18px; }
+
+  .btn-login{
+    font-size: .9rem;
+    padding: .45rem .9rem;                            /* smallere knap */
+    border-radius: 9px;
+    box-shadow: 0 4px 10px rgba(0,0,0,.22);
+  }
+}
+
+/* Meget små skærme ≤ 420px: endnu lidt mindre */
+@media (max-width: 420px){
+  .btn-login{
+    font-size: .85rem;
+    padding: .42rem .8rem;
+  }
+}
 
 
