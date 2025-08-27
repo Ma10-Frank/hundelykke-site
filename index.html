@@ -1,133 +1,89 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="da">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Hundelykke.dk – Din hunds lykke</title>
-  <meta name="description" content="Nøje udvalgt og testet hundeudstyr til Danmarks bedste pris." />
-  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
-  <link rel="stylesheet" href="assets/css/styles.css" />
+  <meta charset="utf-8">
+  <title>Hundelykke.dk</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
 
-  <!-- Skip-link (vises kun ved tastaturfokus) -->
-  <a class="skip-link" href="#indhold">Spring til indhold</a>
+  <!-- ========== HEADER ========== -->
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <!-- Logo -->
+      <a href="/" class="logo-link">
+        <img src="assets/logo.svg" alt="Hundelykke logo" class="site-logo">
+        <span class="site-title">Hundelykke.dk</span>
+      </a>
 
-  <!-- ========= HEADER ========= -->
-  <header class="site-header" role="banner">
-    <div class="site-header__inner">
-      <!-- Centreret logo + titel -->
-      <div class="site-header__center">
-        <a href="/" class="logo-link" aria-label="Gå til forsiden">
-          <img src="assets/logo.svg" alt="Hundelykke logo" class="site-logo" />
-          <span class="site-title">Hundelykke.dk</span>
-        </a>
-      </div>
-
-      <!-- Login-knap helt til højre -->
-      <div class="site-header__right">
-        <a href="#login" class="btn-login">Log ind</a>
-      </div>
+      <!-- Login til højre -->
+      <nav class="user-nav">
+        <a href="#" class="login-btn" id="btnLogin">Log ind</a>
+      </nav>
     </div>
   </header>
 
   <main id="indhold">
 
-<!-- ========= HERO (fuld bredde + bløde kanter) ========= -->
-<section class="hero hero--bleed" aria-label="Forside hero">
-  <div class="hero-media">
-    <img
-      src="assets/færdighero.jpg"
-      alt="Hero billede fra Hundelykke"
-    />
-  </div>
-</section>
-
-    <!-- ========= PRODUKTER ========= -->
-    <section id="produkter" class="products">
-      <div class="container">
-        <header class="section-head">
-          <h2>Udvalgte produkter</h2>
-          <div class="filters" role="tablist" aria-label="Filtrér produkter">
-            <button class="chip is-active" data-filter="Alle" role="tab" aria-selected="true">Alle</button>
-            <button class="chip" data-filter="Godbidder" role="tab">Godbidder</button>
-            <button class="chip" data-filter="Senge" role="tab">Senge</button>
-            <button class="chip" data-filter="Seler & Liner" role="tab">Seler & Liner</button>
-            <button class="chip" data-filter="Skåle" role="tab">Skåle</button>
-            <button class="chip" data-filter="Legetøj" role="tab">Legetøj</button>
-          </div>
-        </header>
-
-        <div id="productGrid" class="grid" aria-live="polite"></div>
-      </div>
-    </section>
-
-    <!-- ========= OM OS ========= -->
-    <section id="omos" class="about">
-      <div class="container about-grid">
-        <div>
-          <h2>Om Hundelykke</h2>
-          <p>Hos <strong>Hundelykke.dk</strong> mener vi, at det ikke skal være dyrt at have hund. Vi udvælger og tester alt udstyr, så du får dokumenteret kvalitet – altid til Danmarks bedste pris.</p>
-          <ul class="checklist">
-            <li>Nøje udvalgt og testet sortiment</li>
-            <li>Funktionalitet, holdbarhed og komfort</li>
-            <li>Altid til Danmarks bedste pris</li>
-          </ul>
-        </div>
-
-        <figure>
-          <img src="https://images.unsplash.com/photo-1507146426996-ef05306b995a?q=80&w=1200&auto=format&fit=crop"
-               alt="Hund i naturen" />
+    <!-- ========== HERO ========== -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <figure class="hero-media">
+          <img src="/assets/hero2.jpg" alt="To hunde ligger på tæppe – Hundelykke">
         </figure>
+        <div class="hero-cta">
+          <h1>Velkommen til Hundelykke</h1>
+          <p>Luksus hundeudstyr i nordisk stil – leveret hurtigt til hele Danmark.</p>
+          <a href="/shop.html" class="btn-cta">Shop nu</a>
+        </div>
       </div>
     </section>
 
-    <!-- ========= KONTAKT ========= -->
+    <!-- ========== PRODUKTER ========== -->
+    <section class="products container">
+      <h2>Udvalgte produkter</h2>
+      <div class="product-grid">
+        <a href="/products/produkt1.html" class="product-card">
+          <img src="assets/products/produkt1.jpg" alt="Produkt 1">
+          <h3>Luksus Hundeseng</h3>
+          <p>Blød og stilren hundeseng i nordisk design.</p>
+        </a>
+        <a href="/products/produkt2.html" class="product-card">
+          <img src="assets/products/produkt2.jpg" alt="Produkt 2">
+          <h3>Eksklusive Godbidder</h3>
+          <p>Sunde og lækre snacks til din hund.</p>
+        </a>
+        <a href="/products/produkt3.html" class="product-card">
+          <img src="assets/products/produkt3.jpg" alt="Produkt 3">
+          <h3>Håndlavet Hundehalsbånd</h3>
+          <p>Kvalitetshalsbånd i læder med nordisk look.</p>
+        </a>
+      </div>
+    </section>
+
+    <!-- ========== OM HUNDELYKKE ========== -->
+    <section id="om" class="about container">
+      <h2>Om Hundelykke</h2>
+      <p>Hos Hundelykke.dk tror vi på, at hunde er en del af familien. 
+         Vi tilbyder nøje udvalgte produkter med fokus på kvalitet, nordisk design og hurtig levering.</p>
+    </section>
+
+    <!-- ========== KONTAKT OS ========== -->
     <section id="kontakt" class="contact">
       <div class="container">
         <h2>Kontakt os</h2>
-        <form class="form" aria-label="Kontaktformular">
-          <label for="navn">Navn</label>
-          <input id="navn" name="navn" type="text" required />
-
-          <label for="email">Email</label>
-          <input id="email" name="email" type="email" required />
-
-          <label for="besked">Besked</label>
-          <textarea id="besked" name="besked" rows="5" required></textarea>
-
-          <div class="actions">
-            <button type="submit" class="btn">Send</button>
-          </div>
-
-          <p id="formMsg" class="form-msg" role="status" aria-live="polite"></p>
-        </form>
+        <p>Har du spørgsmål? Skriv til os på <a href="mailto:ma10falk@gmail.com">ma10falk@gmail.com</a></p>
+        <p>eller ring på <a href="tel:+4524203041">+45 24 20 30 41</a></p>
       </div>
     </section>
 
   </main>
 
-  <!-- ========= FOOTER ========= -->
-  <footer class="site-footer">
-    <div class="container footer-grid">
-      <a class="footer-logo" href="/">
-        <img src="assets/logo.svg" alt="" width="28" height="28" />
-        <span>Hundelykke.dk</span>
-      </a>
-
-      <nav aria-label="Sidefod">
-        <ul class="footer-links">
-          <li><a href="#">Handelsbetingelser</a></li>
-          <li><a href="#">Privatliv & Cookies</a></li>
-          <li><a href="#kontakt">Kontakt</a></li>
-        </ul>
-      </nav>
-    </div>
-  </footer>
-
-  <script src="assets/js/main.js"></script>
 </body>
 </html>
+
 
 
 
