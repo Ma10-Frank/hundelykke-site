@@ -1,226 +1,69 @@
-/* =========================================================
-   Hundelykke – styles.css (v3, fluid / app-like)
-   ========================================================= */
+/* ===== Reset og basis ===== */
+*{ box-sizing:border-box; margin:0; padding:0; }
+body{ font-family:sans-serif; line-height:1.5; color:#333; background:#fff; }
+a{ color:inherit; }
 
-/* ========== Design tokens ========== */
-:root{
-  --bg:#F6F1E9;
-  --paper:#FFFDFC;
-  --ink:#1F2923;
-  --muted:#6B6B6B;
+/* ===== Container ===== */
+.container{ max-width:1200px; margin:0 auto; padding:0 1rem; }
 
-  --green:#215646;
-  --green-600:#2F5D50;
-  --green-700:#154C3E;
+/* ===== Header ===== */
+.site-header{ background:#fff; border-bottom:1px solid #eee; }
+.nav-wrap{ display:flex; justify-content:space-between; align-items:center; padding:1rem 0; }
+.logo-link{ display:flex; align-items:center; gap:.5rem; text-decoration:none; }
+.site-logo{ height:40px; }
+.site-title{ font-size:1.25rem; font-weight:700; }
 
-  --brand-shadow: 0 10px 24px rgba(0,0,0,.10);
-  --soft-shadow:  0 8px 18px rgba(0,0,0,.08);
-  --btn-shadow:   0 8px 16px rgba(0,0,0,.18);
-
-  --radius:14px;
-  --radius-lg:18px;
-
-  /* flydende max bredde */
-  --container: clamp(960px, 88vw, 1100px);
+/* Login knap */
+.login-btn{
+  display:inline-block;
+  background:#2d6a4f;
+  color:#fff;
+  padding:.5rem 1.1rem;
+  border-radius:8px;
+  text-decoration:none;
+  font-weight:600;
+  font-size:.95rem;
+  transition:background .2s;
 }
+.login-btn:hover{ background:#1b4332; }
 
-/* ========== Reset / base ========== */
-*{ box-sizing:border-box; }
-html,body{ margin:0; padding:0; }
-html{ scroll-behavior:smooth; }
-body{
-  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  color:var(--ink);
-  background:var(--bg);
-  line-height:1.55;
-  /* flydende basisstørrelse til “app” feeling */
-  font-size: clamp(15px, .9vw + 12px, 17px);
-}
-img{ max-width:100%; height:auto; display:block; }
-a{ color:var(--green-700); text-decoration:none; }
-a:hover{ text-decoration:underline; }
-.container{ max-width:var(--container); margin-inline:auto; padding-inline:clamp(.75rem, 2vw, 1rem); }
+/* ===== Hero ===== */
+.hero{ position:relative; margin-bottom:2rem; }
+.hero-media{ height:clamp(340px,58vw,720px); overflow:hidden; border-radius:var(--radius,12px); }
+.hero-media img{ width:100%; height:100%; object-fit:cover; object-position:50% 35%; display:block; }
 
-/* Skip link – kun synlig ved tastatur */
-.skip-link{
-  position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden;
-}
-.skip-link:focus{
-  position:fixed; left:1rem; top:1rem; z-index:1000;
-  width:auto; height:auto; padding:.6rem .9rem;
-  background:#fff; color:#000; border-radius:10px;
-  box-shadow:var(--soft-shadow); text-decoration:none;
+/* CTA overlay */
+.hero-cta{ position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; color:#fff; padding:1rem; }
+.hero-cta h1{ font-size:clamp(28px,5vw,56px); margin-bottom:.5rem; text-shadow:0 2px 18px rgba(0,0,0,.35); }
+.hero-cta p{ max-width:600px; font-size:clamp(14px,2.2vw,20px); margin-bottom:1rem; text-shadow:0 1px 14px rgba(0,0,0,.35); }
+.btn-cta{ background:#fff; color:#1f2937; padding:.8rem 1.2rem; border-radius:14px; font-weight:600; text-decoration:none; }
+.btn-cta:hover{ background:#f0f0f0; }
+
+/* Mobiljustering hero */
+@media(max-width:640px){
+  .hero-media{ height:auto; }
+  .hero-media img{ height:auto; object-fit:contain; background:#efe6da; }
+  .hero-cta{ position:static; margin-top:1rem; color:#333; text-shadow:none; }
 }
 
-/* =========================================================
-   HEADER – centreret logo/titel; login fast til højre
-   ========================================================= */
-.site-header{
-  background:#F3ECDF;
-  position:sticky; top:0; z-index:500;
-  border-bottom:1px solid rgba(0,0,0,.05);
-}
-.site-header__inner{
-  max-width:var(--container);
-  margin-inline:auto;
-  padding: clamp(.75rem, 1.6vw, 1.15rem) clamp(.8rem, 2vw, 1.25rem);
-  position:relative;
-  min-height: clamp(56px, 6.5vw, 72px);  /* lidt højere på større skærme */
-}
+/* ===== Produkter ===== */
+.products{ margin:2rem auto; }
+.products h2{ text-align:center; margin-bottom:1rem; }
+.product-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:1rem; }
+.product-card{ background:#fafafa; border:1px solid #eee; border-radius:10px; padding:1rem; text-decoration:none; color:inherit; transition:transform .2s, box-shadow .2s; display:flex; flex-direction:column; align-items:center; }
+.product-card img{ width:100%; height:200px; object-fit:cover; border-radius:8px; margin-bottom:.5rem; }
+.product-card:hover{ transform:translateY(-3px); box-shadow:0 4px 14px rgba(0,0,0,.1); }
+.product-card h3{ margin:.5rem 0; font-size:1.1rem; }
 
-/* Midten: altid præcist i centrum */
-.header-center{
-  position:absolute; left:50%; top:50%;
-  transform:translate(-50%, -50%);
-  display:flex; align-items:center; gap: clamp(.45rem, 1vw, .65rem);
-  white-space:nowrap;
-}
-.logo-link{ display:flex; align-items:center; gap: clamp(.45rem, 1vw, .65rem); }
-.site-logo{ height: clamp(40px, 6vw, 58px); }
-.site-title{
-  font-weight:800; letter-spacing:.2px; color:var(--ink);
-  font-size: clamp(18px, 1.4vw + 12px, 26px);
-  line-height:1;
-}
+/* ===== Om ===== */
+.about{ margin:3rem auto; text-align:center; max-width:800px; }
 
-/* Højre: login-knap, fast til højre – skalerer ned på mobil */
-.header-right{
-  position:absolute; right:clamp(10px, 3vw, 28px); top:50%;
-  transform:translateY(-50%);
-}
-.btn-login{
-  display:inline-flex; align-items:center; gap:.5rem;
-  background:var(--green); color:#fff; font-weight:800;
-  font-size: clamp(.85rem, .6vw + .75rem, 1rem);
-  padding: clamp(.42rem, .4vw + .35rem, .6rem) clamp(.82rem, 1vw + .6rem, 1.1rem);
-  border-radius: clamp(9px, 1vw, 12px);
-  border:1px solid rgba(0,0,0,.06);
-  box-shadow:var(--btn-shadow);
-  transition: transform .08s ease, box-shadow .12s ease, background .12s ease;
-}
-.btn-login:hover{ text-decoration:none; background:var(--green-600); box-shadow:0 10px 20px rgba(0,0,0,.22); }
-.btn-login:active{ transform: translateY(1px); }
-
-/* =========================================================
-   HERO – contain på desktop (ingen crop), cover på mobil
-   ========================================================= */
-.hero{ background:transparent; }
-.hero--bleed .hero-media{
-  max-width:var(--container);
-  margin:0 auto;
-  padding-inline: clamp(.75rem, 2vw, 1rem);
-}
-.hero--bleed .hero-media img{
-  width:100%; height:auto; object-fit:contain;
-  border-radius:var(--radius-lg); box-shadow:var(--brand-shadow);
-}
-/* Mobil/tablet: pæn “app”-agtig crop */
-@media (max-width:1024px){
-  .hero--bleed .hero-media img{
-    height: clamp(220px, 45vw, 560px);
-    width:100%; object-fit:cover;
-  }
-}
-/* Meget brede skærme: undgå unødigt høj hero */
-@media (min-width:1400px){
-  .hero--bleed .hero-media img{ max-height:85vh; object-fit:contain; }
-}
-
-/* =========================================================
-   PRODUKTER – grid + ens kort, flydende spacing/typografi
-   ========================================================= */
-.product-section{
-  padding: clamp(1rem, 2.2vw, 1.6rem) clamp(.75rem, 2vw, 1rem) 0;
-  max-width:var(--container); margin-inline:auto;
-}
-.section-head{ display:flex; align-items:end; justify-content:space-between; gap:1rem; }
-.section-head h2{ margin:0; font-size: clamp(22px, 2vw + 16px, 30px); line-height:1.2; }
-
-/* filter chips */
-.chips{ display:flex; flex-wrap:wrap; gap: clamp(.4rem, .6vw, .6rem); margin:.75rem 0 1rem; }
-.chip{
-  background:#fff; border:1px solid rgba(0,0,0,.08);
-  padding: clamp(.45rem, .5vw, .55rem) clamp(.75rem, 1vw, .9rem);
-  border-radius:28px; font-weight:700; color:var(--ink);
-  box-shadow:0 3px 8px rgba(0,0,0,.05);
-  font-size: clamp(.85rem, .35vw + .8rem, .95rem);
-}
-.chip.is-active{ background:var(--green); color:#fff; border-color:transparent; }
-
-/* grid */
-.product-grid{
-  display:grid;
-  gap: clamp(.75rem, 1vw, 1.25rem);
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-}
-
-/* kort */
-.product{
-  background:#fff; border:1px solid rgba(0,0,0,.06);
-  border-radius:var(--radius);
-  box-shadow:var(--soft-shadow);
-  overflow:hidden; display:flex; flex-direction:column;
-  transition: transform .08s ease, box-shadow .12s ease;
-}
-.product:hover{ transform: translateY(-2px); box-shadow:0 10px 22px rgba(0,0,0,.10); }
-
-/* billedfelt – ens højde via aspect-ratio */
-.product .thumb{
-  position:relative; background:#fafafa; overflow:hidden;
-  aspect-ratio: 4 / 3;
-}
-.product .thumb img{
-  position:absolute; inset:0; width:100%; height:100%; object-fit:cover;
-}
-
-/* indhold */
-.product .content{
-  padding: clamp(.7rem, 1vw, .95rem) clamp(.8rem, 1.2vw, 1.1rem) clamp(.9rem, 1.4vw, 1.2rem);
-  display:flex; flex-direction:column; gap:.45rem;
-}
-
-/* Normaliser alle headings inde i produktkort */
-.product h1,.product h2,.product h3,.product h4,.product h5,.product h6{
-  margin:0; font-size: clamp(.98rem, .35vw + .95rem, 1.05rem);
-  line-height:1.35; font-weight:800; color:var(--ink);
-}
-.product .title{
-  display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden;
-}
-
-/* meta/price */
-.product .meta{ color:var(--muted); font-size: clamp(.86rem, .3vw + .82rem, .94rem); }
-.product .price{ font-weight:800; font-size: clamp(1rem, .4vw + .98rem, 1.12rem); margin-top:.15rem; }
-
-/* actions */
-.product .actions{ margin-top:.6rem; display:flex; gap:.5rem; flex-wrap:wrap; }
-.btn{
-  display:inline-flex; align-items:center; justify-content:center; gap:.5rem;
-  padding: clamp(.6rem, .6vw, .7rem) clamp(.9rem, 1vw, 1rem);
-  background:#fff; border:1px solid rgba(0,0,0,.08);
-  border-radius:12px; color:var(--ink); box-shadow:0 4px 10px rgba(0,0,0,.06);
-  font-size: clamp(.9rem, .35vw + .85rem, 1rem);
-}
-.btn-primary{ background:var(--green); color:#fff; border-color:transparent; }
-.btn-primary:hover{ background:var(--green-600); text-decoration:none; }
-
-/* =========================================================
-   Footer
-   ========================================================= */
-.site-footer{ margin-top:3rem; background:#fff; border-top:1px solid rgba(0,0,0,.06); }
-.footer-grid{
-  display:flex; align-items:center; justify-content:space-between; gap:1rem;
-  padding: clamp(1rem, 1.6vw, 1.3rem) clamp(.9rem, 2vw, 1.2rem);
-  max-width:var(--container); margin-inline:auto;
-}
-.footer-links{ display:flex; gap:1rem; list-style:none; padding:0; margin:0; }
-
-/* =========================================================
-   Små tuninger for meget små skærme
-   ========================================================= */
-@media (max-width:600px){
-  .site-title{ letter-spacing:.1px; }
-}
+/* ===== Kontakt ===== */
+.contact{ background:#f8f8f8; padding:2rem 1rem; margin-top:3rem; }
+.contact .container{ text-align:center; }
+.contact h2{ margin-bottom:.5rem; }
+.contact a{ color:#2d6a4f; text-decoration:none; font-weight:600; }
+.contact a:hover{ text-decoration:underline; }
 
 
 
