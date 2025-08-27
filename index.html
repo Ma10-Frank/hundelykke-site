@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Hundelykke.dk</title>
 
-  <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
-  <!-- CSS SKAL ligge i <head> -->
-  <link rel="stylesheet" href="./assets/styles.css" />
+  <link rel="icon" href="./assets/logo.svg" type="image/svg+xml" />
+  <!-- VIGTIGT: korrekt sti til CSS -->
+  <link rel="stylesheet" href="./assets/css/styles.css" />
 </head>
 <body>
 
@@ -21,11 +21,11 @@
 
       <!-- Midten: Brand -->
       <a href="/" class="hlk-brand" aria-label="Hundelykke forside">
-        <img src="assets/logo.svg" alt="" class="hlk-logo" />
+        <img src="./assets/logo.svg" alt="" class="hlk-logo" />
         <span class="hlk-brand-title">Hundelykke.dk</span>
       </a>
 
-      <!-- Højre: tom spacer (for at holde brand 100% centreret) -->
+      <!-- Højre: tom spacer (bevarer midter-centrering) -->
       <div class="hlk-right" aria-hidden="true"></div>
     </div>
   </header>
@@ -36,8 +36,8 @@
     <!-- ===== HERO ===== -->
     <section class="hlk-hero">
       <div class="hlk-hero-media">
-        <!-- Brug det rigtige filnavn -->
-        <img src="assets/faerdighero.jpg" alt="Glade hunde i nordisk hjem" class="hlk-hero-img" />
+        <!-- Brug hero.png for at undgå æ/tegnproblemer -->
+        <img src="./assets/hero.png" alt="Glade hunde i nordisk hjem" class="hlk-hero-img" />
         <div class="hlk-hero-overlay"></div>
         <div class="hlk-hero-content">
           <h1>Velkommen til Hundelykke</h1>
@@ -53,10 +53,9 @@
         <h2>Udvalgte produkter</h2>
 
         <div class="hlk-grid">
-          <!-- Produkt 1 -->
           <article class="hlk-card">
             <div class="hlk-card-media">
-              <img src="assets/produkt1.jpg" alt="Luksus hundeseng, beige" />
+              <img src="./assets/hero.png" alt="Luksus hundeseng, beige" />
             </div>
             <div class="hlk-card-body">
               <h3>Luksus hundeseng (Beige)</h3>
@@ -66,10 +65,9 @@
             </div>
           </article>
 
-          <!-- Produkt 2 -->
           <article class="hlk-card">
             <div class="hlk-card-media">
-              <img src="assets/produkt2.jpg" alt="H-sele i håndsyet læder" />
+              <img src="./assets/hero.png" alt="H-sele i håndsyet læder" />
             </div>
             <div class="hlk-card-body">
               <h3>H-sele i håndsyet læder</h3>
@@ -79,10 +77,9 @@
             </div>
           </article>
 
-          <!-- Produkt 3 -->
           <article class="hlk-card">
             <div class="hlk-card-media">
-              <img src="assets/produkt3.jpg" alt="Keramisk vandskål" />
+              <img src="./assets/hero.png" alt="Keramisk vandskål" />
             </div>
             <div class="hlk-card-body">
               <h3>Keramisk vandskål</h3>
@@ -103,6 +100,7 @@
           Vi forener kvalitet, komfort og nordisk design – fordi hunde er familie.
           Som uddannet slagter laver vi også egne godbidder i små partier.
         </p>
+
         <div class="hlk-about-grid">
           <div class="hlk-about-point">
             <h3>Håndplukket sortiment</h3>
@@ -117,6 +115,7 @@
             <p>Røgede griseører, okseben og sener – produceret med respekt for råvaren.</p>
           </div>
         </div>
+
         <div class="hlk-cta-row">
           <a href="#produkter" class="hlk-btn">Se produkter</a>
           <a href="#" class="hlk-btn-ghost">Læs mere</a>
