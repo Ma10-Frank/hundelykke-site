@@ -33,6 +33,19 @@ a{ color:inherit; }
   justify-content: space-between; /* logo til venstre, login til højre */
   gap: 1rem;
 }
+.login-btn{
+  display:inline-block;
+  background:#2d6a4f;
+  color:#fff;
+  padding:.5rem 1.1rem;
+  border-radius:8px;
+  text-decoration:none;
+  font-weight:600;
+  font-size:.95rem;
+  line-height:1;
+  transition:background .2s ease;
+}
+.login-btn:hover{ background:#1b4332; }
 
 /* sikkerhedsnet: skub navigationen helt til højre */
 .user-nav{ margin-left: auto; }
@@ -85,5 +98,15 @@ a{ color:inherit; }
 .contact a{ color:#2d6a4f; text-decoration:none; font-weight:600; }
 .contact a:hover{ text-decoration:underline; }
 
+@media (max-width: 420px){
+  .site-title{ font-size:1rem; }   /* lidt mindre titel */
+  .site-logo{ height:32px; }
+  .login-btn{ padding:.45rem .9rem; font-size:.9rem; }
+}
+
+/* ultra-smal: hvis der stadig mangler plads, kan vi skjule teksten */
+@media (max-width: 340px){
+  .site-title{ display:none; }
+}
 
 
