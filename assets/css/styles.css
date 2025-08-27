@@ -222,5 +222,25 @@ p{ margin:0 0 .8rem; }
     padding: .42rem .8rem;
   }
 }
+/* ===== HERO – no crop på desktop, cover på mobil ===== */
+
+/* Standard: desktop (ingen beskæring) */
+.hero--bleed .hero-media img{
+  width: 100%;
+  height: auto;           /* viser hele billedet proportionalt */
+  object-fit: contain;    /* sikkerhedsnet hvis der sættes max-height senere */
+  display: block;
+}
+
+/* Mobil/tablet: behold cover-stil og fast højde (det du kan lide) */
+@media (max-width: 1024px){
+  .hero--bleed .hero-media img{
+    height: clamp(220px, 45vw, 560px);
+    object-fit: cover;
+  }
+}
+@media (min-width: 1280px){
+  .hero--bleed .hero-media img{ max-height: 80vh; object-fit: contain; }
+}
 
 
