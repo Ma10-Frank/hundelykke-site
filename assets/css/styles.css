@@ -109,4 +109,38 @@ a{ color:inherit; }
   .site-title{ display:none; }
 }
 
+/* === Hundelykke tema - beige overrides === */
+:root{
+  --beige-50: #F5EFE6;   /* baggrund */
+  --text-900: #0f172a;   /* mørk tekst */
+}
+
+/* Global baggrund + tekst */
+html, body{
+  background-color: var(--beige-50) !important;
+  color: var(--text-900) !important;
+}
+
+/* Header og navigation */
+header, .header, nav, .navbar{
+  background-color: var(--beige-50) !important;
+  box-shadow: none !important;
+}
+
+/* Sektioner følger body (ingen hvid blok) */
+main, .page, .container, section{
+  background-color: transparent !important;
+}
+
+/* Hero må ikke have hvid baggrund */
+.hero, .hero-section, .hero-wrapper{
+  background: transparent !important;
+}
+
+/* (Valgfrit) Produktkort kan godt være hvide ovenpå beige */
+.card, .product-card, .card--product{
+  background: #ffffff !important;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0,0,0,.06);
+}
 
