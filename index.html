@@ -6,127 +6,23 @@
   <title>Hundelykke.dk</title>
 
   <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+  <!-- CSS SKAL ligge i <head> -->
   <link rel="stylesheet" href="./assets/styles.css" />
 </head>
 <body>
 
   <!-- ===== HEADER ===== -->
-  <header class="site-header" role="banner">
-    <div class="container nav-wrap">
+  <header class="hlk-header" role="banner">
+    <div class="hlk-wrap">
       <!-- Venstre: Log ind -->
-      <nav class="nav-left" aria-label="Bruger">
-        <a href="#" class="btn btn-ghost" id="btnLogin">Log ind</a>
+      <nav class="hlk-left" aria-label="Bruger">
+        <a href="#" class="hlk-btn-ghost" id="btnLogin">Log ind</a>
       </nav>
 
       <!-- Midten: Brand -->
-      <a href="/" class="brand" aria-label="Hundelykke forside">
-        <img src="assets/logo.svg" alt="" class="brand-logo" />
-        <span class="brand-title">Hundelykke.dk</span>
-      </a>
-
-      <!-- Højre: balance-kolonne (klar til fremtidig kurv/søgning) -->
-      <div class="nav-right" aria-hidden="true"></div>
-    </div>
-  </header>
-
-  <!-- ===== MAIN ===== -->
-  <main id="indhold">
-
-    <!-- ===== HERO ===== -->
-    <section class="hero">
-      <div class="hero-media">
-        <!-- ERSTAT filnavn hvis dit hero-billede hedder noget andet -->
-        <img src="assets/faerdighero.jpg" alt="Glade hunde i nordisk hjem" class="hero-img" />
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-          <h1>Velkommen til Hundelykke</h1>
-          <p>Luksus hundeudstyr i nordisk stil – hurtig levering i hele Danmark.</p>
-          <a href="#produkter" class="btn">Shop nu</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== PRODUKTER ===== -->
-    <section id="produkter" class="section">
-      <div class="container">
-        <h2>Udvalgte produkter</h2>
-
-        <div class="product-grid">
-          <!-- Produkt 1 -->
-          <article class="card product-card">
-            <div class="card-media">
-              <img src="assets/produkt1.jpg" alt="Luksus hundeseng, beige" />
-            </div>
-            <div class="card-body">
-              <h3>Luksus hundeseng (Beige)</h3>
-              <p class="subtle">Blød memory foam og aftageligt betræk.</p>
-              <p class="price">DKK 699</p>
-              <button class="btn btn-sm">Læg i kurv</button>
-            </div>
-          </article>
-
-          <!-- Produkt 2 -->
-          <article class="card product-card">
-            <div class="card-media">
-              <img src="assets/produkt2.jpg" alt="H-sele i håndsyet læder" />
-            </div>
-            <div class="card-body">
-              <h3>H-sele i håndsyet læder</h3>
-              <p class="subtle">Justerbar pasform og massiv messing.</p>
-              <p class="price">DKK 399</p>
-              <button class="btn btn-sm">Læg i kurv</button>
-            </div>
-          </article>
-
-          <!-- Produkt 3 (placeholder) -->
-          <article class="card product-card">
-            <div class="card-media">
-              <img src="assets/produkt3.jpg" alt="Keramisk vandskål" />
-            </div>
-            <div class="card-body">
-              <h3>Keramisk vandskål</h3>
-              <p class="subtle">Skridsikker bund. Tåler opvaskemaskine.</p>
-              <p class="price">DKK 179</p>
-              <button class="btn btn-sm">Læg i kurv</button>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== OM HUNDELYKKE ===== -->
-    <section class="section about">
-      <div class="container">
-        <h2>Om Hundelykke</h2>
-        <p class="lede">
-          Vi forener kvalitet, komfort og nordisk design – fordi hunde er familie. 
-          Som uddannet slagter laver vi også egne godbidder med respekt for råvaren.
-        </p>
-        <div class="about-grid">
-          <div class="about-point">
-            <h3>Håndplukket sortiment</h3>
-            <p>Kun produkter vi selv ville give til vores egne hunde – fra bløde senge til holdbare seler.</p>
-          </div>
-          <div class="about-point">
-            <h3>Hurtig levering</h3>
-            <p>Primært EU-lagre for hurtig levering i hele Danmark.</p>
-          </div>
-          <div class="about-point">
-            <h3>Egne godbidder</h3>
-            <p>Røgede griseører, okseben og sener – håndlavet i små partier.</p>
-          </div>
-        </div>
-        <div class="cta-row">
-          <a href="#produkter" class="btn">Se produkter</a>
-          <a href="#" class="btn btn-ghost">Læs mere</a>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-</body>
-</html>
+      <a href="/" class="hlk-brand" aria-label="Hundelykke forside">
+        <img src="assets/logo.svg" alt="" class="hlk-logo" />
+        <s
 
 
 
