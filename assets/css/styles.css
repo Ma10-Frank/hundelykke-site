@@ -1,246 +1,292 @@
 /* =========================================================
-   Hundelykke.dk – Global stylesheet (ny samlet version)
-   Løser:
-   - Skip-link vises kun ved fokus
-   - Hero: fuld bredde (edge-to-edge) + bløde hjørner + skygge
-   - Header: logo+titel centreret, Login helt til højre
+   Hundelykke – komplet styles.css
    ========================================================= */
 
-/* =============== TOKENS =============== */
+/* ========== Design tokens ========== */
 :root{
-  --bg: #F6F1E9;
-  --bg-alt: #F1EADF;
-  --text: #1F1F1F;
-  --muted: #6B6B6B;
+  --bg:#F6F1E9;
+  --paper:#FFFDFC;
+  --ink:#1F2923;
+  --muted:#6B6B6B;
 
-  --green-700:#25453F;
-  --green-600:#2F6A52;
-  --brand:#24543F;
+  --green:#215646;           /* primær grøn (logo / CTA) */
+  --green-600:#2F5D50;       /* hover-variant */
+  --green-700:#154C3E;       /* mørkere nuance */
 
-  --radius: 16px;
-  --shadow: 0 12px 28px rgba(0,0,0,.12);
-  --shadow-soft: 0 6px 16px rgba(0,0,0,.10);
+  --brand-shadow: 0 10px 24px rgba(0,0,0,.10);
+  --soft-shadow:  0 8px 18px rgba(0,0,0,.08);
+  --btn-shadow:   0 8px 16px rgba(0,0,0,.18);
 
-  --maxw: 1100px;
+  --radius:14px;
+  --radius-lg:18px;
+
+  --container: 1100px;
 }
 
-/* =============== BASE =============== */
+/* ========== Reset / base ========== */
 *{ box-sizing: border-box; }
 html,body{ margin:0; padding:0; }
-img{ max-width:100%; height:auto; display:block; }
-
+html{ scroll-behavior:smooth; }
 body{
   font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  color: var(--text);
-  background: radial-gradient(1200px 500px at 50% -100px, rgba(0,0,0,.06), transparent 60%) var(--bg);
-  line-height: 1.55;
+  color:var(--ink);
+  background:var(--bg);
+  line-height:1.55;
 }
 
-.container{ width: min(100%, var(--maxw)); margin-inline:auto; padding-inline:1rem; }
+/* Links */
+a{ color:var(--green-700); text-decoration:none; }
+a:hover{ text-decoration:underline; }
 
-h1,h2,h3{ color: var(--green-700); margin:0 0 .7rem; line-height:1.2; }
-h1{ font-size: clamp(26px, 3.2vw, 38px); font-weight: 800; }
-h2{ font-size: clamp(20px, 2.2vw, 26px); font-weight: 800; }
-h3{ font-size: 18px; font-weight: 700; color: var(--text); }
-p{ margin:0 0 .8rem; }
-.small{ font-size:.9rem; color:var(--muted); }
+/* Container */
+.container{
+  max-width:var(--container);
+  margin-inline:auto;
+  padding-inline:1rem;
+}
 
-/* Skip link – skjult indtil fokus */
+/* ========== Skip link (fix “Spring til indhold”) ========== */
 .skip-link{
-  position:absolute; left:-9999px; top:auto;
-  background:#000; color:#fff; padding:.6rem .9rem; border-radius:10px;
-  text-decoration:none; z-index:1000;
+  position:absolute;
+  left:-9999px;
+  top:auto;
+  width:1px;
+  height:1px;
+  overflow:hidden;
 }
 .skip-link:focus{
-  left:8px; top:8px;
-  box-shadow: var(--shadow-soft);
+  position:fixed;
+  left:1rem;
+  top:1rem;
+  z-index:1000;
+  width:auto;
+  height:auto;
+  padding:.6rem .9rem;
+  background:#fff;
+  color:#000;
+  border-radius:10px;
+  box-shadow:var(--soft-shadow);
+  text-decoration:none;
 }
 
-/* =============== KNAPPER =============== */
-.btn{
-  display:inline-flex; align-items:center; justify-content:center;
-  gap:.4rem; background: var(--brand); color:#fff; text-decoration:none;
-  font-weight:700; padding:.8rem 1.2rem; border-radius:999px;
-  box-shadow: var(--shadow-soft);
-  transition: transform .15s ease, box-shadow .15s ease, background-color .15s ease;
-}
-.btn:hover{ background: var(--green-600); transform: translateY(-1px); box-shadow: var(--shadow); }
-
-/* =============== CHIP-FILTER =============== */
-.chip{
-  appearance:none; border:1px solid rgba(0,0,0,.12); background:#fff; color:var(--text);
-  border-radius:999px; padding:.55rem 1rem; cursor:pointer; font-weight:700;
-  transition: background .15s ease, color .15s ease, border-color .15s ease;
-}
-.chip.is-active{ background: var(--brand); color:#fff; border-color:transparent; }
-
-/* =============== HEADER =============== */
+/* ========== Header ========== */
 .site-header{
-  position: sticky; top: 0; z-index: 50;
-  background: var(--bg-alt);
-  border-bottom: 1px solid rgba(0,0,0,.06);
+  background:#F3ECDF;             /* lys varm tone */
+  position:sticky;
+  top:0;
+  z-index: 500;
+  border-bottom:1px solid rgba(0,0,0,.05);
 }
+
 .site-header__inner{
-  position: relative;
-  display:flex; align-items:center; justify-content:center;
-  padding:.6rem 1rem;
+  max-width:var(--container);
+  margin-inline:auto;
+  padding: 1rem 1.25rem;           /* lidt højere header */
+  display:grid;
+  grid-template-columns: 1fr auto 1fr;  /* venstre spacer, center logo+title, højre knap */
+  align-items:center;
+  gap: 1rem;
 }
 
-/* Centreret logo + titel */
-.logo-link{ display:inline-flex; align-items:center; gap:.6rem; text-decoration:none; }
-.site-header__center{
-  position:absolute; left:50%; transform:translateX(-50%);
-  display:flex; align-items:center; gap:.6rem;
+.header-center{
+  justify-self:center;
+  display:flex;
+  align-items:center;
+  gap:.65rem;
 }
-.site-logo{ height:48px; width:auto; }
-.site-title{ font-weight:800; font-size:22px; color:var(--green-700); letter-spacing:.2px; }
-
-/* Login helt til højre */
-.site-header__right{ margin-left:auto; }
-.btn-login{
-  background: var(--brand); color:#fff !important;
-  padding:.6rem 1.2rem; border-radius:10px; font-weight:650; line-height:1;
-  text-decoration:none; white-space:nowrap;
-  box-shadow: 0 6px 14px rgba(0,0,0,.25);
-  transition: transform .15s ease, box-shadow .15s ease, background-color .15s ease;
-}
-.btn-login:hover{ background: var(--green-600); transform: translateY(-1px); box-shadow: 0 8px 18px rgba(0,0,0,.32); }
-
-/* =============== HERO – FULL BLEED =============== */
-.hero{ margin: 0 0 1.2rem; }
-.hero--bleed .hero-media{
-  width: 100vw;             /* fuld bredde */
-  margin-left: 50%;
-  transform: translateX(-50%);
-  border-radius: var(--radius);
-  overflow: hidden;
-  box-shadow: var(--shadow);
-}
-.hero--bleed .hero-media img{
-  width: 100%;
-  height: clamp(220px, 45vw, 560px);   /* responsiv højde */
-  object-fit: cover;
-  display:block;
-}
-
-/* =============== PRODUKTER =============== */
-.products{ padding: 1.8rem 0; }
-.section-head{
-  display:flex; align-items:center; justify-content:space-between; gap:.8rem; margin-bottom:1rem;
-}
-.filters{ display:flex; gap:.6rem; flex-wrap:wrap; }
-.grid{
-  display:grid; gap:1rem;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-}
-
-/* Produktkort (JS fylder indholdet) */
-.card{
-  background:#fff; border:1px solid rgba(0,0,0,.06); border-radius: var(--radius);
-  box-shadow: var(--shadow-soft); overflow:hidden; display:flex; flex-direction:column;
-}
-.card .media{ aspect-ratio: 4/3; overflow:hidden; }
-.card .media img{ width:100%; height:100%; object-fit:cover; }
-.card .body{ padding: .9rem 1rem 1.1rem; }
-.card .title{ font-weight:800; font-size:1rem; margin-bottom:.25rem; }
-.card .meta{ color:var(--muted); font-size:.9rem; margin-bottom:.4rem; }
-.card .price{ font-weight:800; color:var(--green-700); }
-.card .actions{ display:flex; gap:.6rem; margin-top:.6rem; }
-.btn-small{ padding:.55rem .9rem; font-size:.95rem; border-radius:10px; }
-
-/* =============== OM OS =============== */
-.about{ padding: 1.8rem 0; }
-.about-grid{ display:grid; grid-template-columns: 1.2fr .8fr; gap:1.2rem; align-items:start; }
-.about figure{ margin:0; border-radius: var(--radius); overflow:hidden; box-shadow: var(--shadow-soft); }
-
-/* =============== KONTAKT =============== */
-.contact{ padding: 1.8rem 0; }
-.form{
-  background:#fff; padding:1.2rem; border-radius: var(--radius);
-  box-shadow: var(--shadow-soft); display:grid; gap:.8rem;
-}
-.form label{ font-weight:700; font-size:.95rem; }
-.form input, .form textarea{
-  width:100%; padding:.8rem; border-radius:10px; border:1px solid #d8d8d8; background:#fff;
-}
-.form .actions{ margin-top:.4rem; }
-
-/* =============== FOOTER =============== */
-.site-footer{ padding: 2rem 0; border-top:1px solid rgba(0,0,0,.08); }
-.footer-grid{ display:flex; align-items:center; justify-content:space-between; gap:1rem; flex-wrap:wrap; }
-.footer-links{ list-style:none; padding:0; margin:0; display:flex; gap:1rem; }
-.footer-logo{ display:inline-flex; align-items:center; gap:.5rem; text-decoration:none; color:var(--text); }
-
-/* =============== RESPONSIVE =============== */
-@media (max-width: 920px){
-  .grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .about-grid{ grid-template-columns: 1fr; }
-}
-@media (max-width: 640px){
-  .site-logo{ height:42px; }
-  .site-title{ font-size:18px; }
-  .btn-login{ padding:.5rem 1rem; border-radius:9px; font-size:.95rem; }
-
-  .grid{ grid-template-columns: 1fr; }
-  .filters{ gap:.5rem; }
-  .section-head{ flex-direction:column; align-items:flex-start; gap:.6rem; }
-}
-/* ===========================================
-   HEADER-TWEAKS: højere header + mindre login på mobil
-   (placér nederst i styles.css)
-   =========================================== */
-
-/* Desktop/tablet: header lidt højere */
-.site-header__inner{
-  padding: 1rem 1.25rem;         /* før var ~0.6rem – giver lidt mere højde */
-}
-.site-logo{
-  height: 56px;                  /* før 48px -> logo lidt større = højere header */
-}
+.logo-link{ display:flex; align-items:center; gap:.65rem; }
+.site-logo{ height:56px; display:block; }     /* hævet lidt for højere header */
 .site-title{
-  font-size: 24px;               /* lidt større for bedre balance */
+  font-weight:800;
+  letter-spacing:.2px;
+  color:var(--ink);
+  font-size:24px;
+  white-space:nowrap;
 }
 
-/* Mobil ≤ 640px: gør login-knappen mindre */
-@media (max-width: 640px){
-  .site-header__inner{ padding: .7rem 1rem; }         /* lidt lavere padding på selve headeren */
-  .site-logo{ height: 42px; }                         /* samme som før i din fil */
-  .site-title{ font-size: 18px; }
-
-  .btn-login{
-    font-size: .9rem;
-    padding: .45rem .9rem;                            /* smallere knap */
-    border-radius: 9px;
-    box-shadow: 0 4px 10px rgba(0,0,0,.22);
-  }
+/* Login-knap – højre side */
+.header-right{
+  justify-self:end;
 }
-
-/* Meget små skærme ≤ 420px: endnu lidt mindre */
-@media (max-width: 420px){
-  .btn-login{
-    font-size: .85rem;
-    padding: .42rem .8rem;
-  }
+.btn-login{
+  display:inline-flex;
+  align-items:center;
+  gap:.5rem;
+  background:var(--green);
+  color:#fff;
+  font-weight:700;
+  font-size:1rem;
+  padding:.6rem 1.1rem;
+  border-radius:12px;
+  box-shadow:var(--btn-shadow);
+  border:1px solid rgba(0,0,0,.06);
+  transition: transform .08s ease, box-shadow .12s ease, background .12s ease;
 }
-/* ===== HERO – no crop på desktop, cover på mobil ===== */
+.btn-login:hover{
+  text-decoration:none;
+  background:var(--green-600);
+  box-shadow:0 10px 20px rgba(0,0,0,.22);
+}
+.btn-login:active{ transform: translateY(1px); }
 
-/* Standard: desktop (ingen beskæring) */
+/* ========== HERO (edge-to-edge) ========== */
+
+/* Wrapper der ruller “fra kant til kant”, men med bløde hjørner og skygge */
+.hero{
+  background:transparent;
+}
+.hero--bleed .hero-media{
+  max-width: var(--container);
+  margin: 0 auto;
+  padding-inline: 1rem;
+}
 .hero--bleed .hero-media img{
   width: 100%;
-  height: auto;           /* viser hele billedet proportionalt */
-  object-fit: contain;    /* sikkerhedsnet hvis der sættes max-height senere */
-  display: block;
+  height: auto;                 /* DESKTOP: ingen beskæring */
+  display:block;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--brand-shadow);
 }
 
-/* Mobil/tablet: behold cover-stil og fast højde (det du kan lide) */
+/* Mobil/tablet: behold cover-følelsen (det du kunne lide), fast højde og crop */
 @media (max-width: 1024px){
+  .hero--bleed .hero-media{
+    padding-inline: .75rem;
+  }
   .hero--bleed .hero-media img{
     height: clamp(220px, 45vw, 560px);
-    object-fit: cover;
+    object-fit: cover;           /* lækkert crop på små skærme */
+    width: 100%;
+    border-radius: var(--radius-lg);
   }
 }
-@media (min-width: 1280px){
-  .hero--bleed .hero-media img{ max-height: 80vh; object-fit: contain; }
+
+/* Valgfri: ekstremt brede skærme – begræns højden uden at beskære */
+@media (min-width: 1400px){
+  .hero--bleed .hero-media img{
+    max-height: 85vh;
+    object-fit: contain;
+  }
+}
+
+/* ========== Sektion-rammer og overskrifter ========== */
+.section-head{
+  display:flex;
+  align-items: end;
+  justify-content: space-between;
+  gap:1rem;
+  padding: 1.2rem 1rem 0;
+  max-width: var(--container);
+  margin-inline:auto;
+}
+.section-head h2{
+  margin:0;
+  font-size: clamp(22px, 2.2vw, 30px);
+  line-height:1.2;
+}
+
+/* ========== Chips / filtre ========== */
+.chips{
+  display:flex;
+  flex-wrap:wrap;
+  gap:.6rem;
+}
+.chip{
+  background:#fff;
+  border:1px solid rgba(0,0,0,.08);
+  padding:.55rem .9rem;
+  border-radius: 28px;
+  font-weight:700;
+  color:var(--ink);
+  box-shadow: 0 3px 8px rgba(0,0,0,.05);
+}
+.chip.is-active{
+  background:var(--green);
+  color:#fff;
+  border-color: transparent;
+}
+
+/* ========== Knapper generelt ========== */
+.btn{
+  display:inline-flex; align-items:center; justify-content:center;
+  gap:.5rem;
+  padding:.7rem 1rem;
+  background:#fff;
+  border:1px solid rgba(0,0,0,.08);
+  border-radius:12px;
+  color:var(--ink);
+  box-shadow: 0 4px 10px rgba(0,0,0,.06);
+}
+.btn-primary{
+  background:var(--green);
+  color:#fff;
+  border-color: transparent;
+}
+.btn-primary:hover{ background:var(--green-600); text-decoration:none; }
+
+/* ========== Cards / bokse (bruges af produkter m.m.) ========== */
+.card{
+  background:#fff;
+  border:1px solid rgba(0,0,0,.06);
+  border-radius:var(--radius);
+  box-shadow:var(--soft-shadow);
+  overflow:hidden;
+}
+
+/* ========== Footer ========== */
+.site-footer{
+  margin-top: 3rem;
+  background:#fff;
+  border-top:1px solid rgba(0,0,0,.06);
+}
+.footer-grid{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:1rem;
+  padding:1.2rem 1rem;
+  max-width:var(--container);
+  margin-inline:auto;
+}
+.footer-links{
+  display:flex;
+  gap:1rem;
+  list-style:none;
+  padding:0;
+  margin:0;
+}
+
+/* ========== Responsiv tuning ========== */
+@media (max-width: 860px){
+  .site-logo{ height:48px; }
+  .site-title{ font-size:20px; }
+  .btn-login{
+    font-size:.95rem;
+    padding:.5rem 1rem;
+    border-radius:10px;
+  }
+  .footer-grid{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+}
+
+@media (max-width: 600px){
+  .site-header__inner{
+    grid-template-columns: 1fr auto;   /* logo+title og knap */
+    grid-template-areas:
+      "center right";
+  }
+  .header-center{ grid-area:center; }
+  .header-right{ grid-area:right; }
+  .site-logo{ height:42px; }
+  .site-title{ font-size:18px; }
+  .btn-login{
+    font-size:.9rem;
+    padding:.42rem .82rem;
+    border-radius:9px;
+    box-shadow: 0 6px 14px rgba(0,0,0,.18);
+  }
 }
 
 
