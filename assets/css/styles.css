@@ -26,6 +26,26 @@ a{ color:inherit; }
   transition:background .2s;
 }
 .login-btn:hover{ background:#1b4332; }
+/* Header layout */
+.nav-wrap{
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* logo til venstre, login til højre */
+  gap: 1rem;
+}
+
+/* sikkerhedsnet: skub navigationen helt til højre */
+.user-nav{ margin-left: auto; }
+
+/* Logo-linje */
+.logo-link{
+  display:flex;
+  align-items:center;
+  gap:.5rem;
+  text-decoration:none;
+}
+.site-logo{ height:40px; }
+.site-title{ font-weight:700; font-size:1.25rem; white-space:nowrap; }
 
 /* ===== Hero ===== */
 .hero{ position:relative; margin-bottom:2rem; }
