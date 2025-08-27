@@ -1,15 +1,37 @@
 <!DOCTYPE html>
 <html lang="da">
 <head>
-  <meta charset="utf-8">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hundelykke.dk</title>
-  <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="assets/css/styles.css">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Favicon -->
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="./assets/styles.css">
+
+  <!-- Beige overrides (skal ligge sidst i <head>) -->
+  <style>
+    :root { --beige-50:#F5EFE6; --text-900:#0f172a; }
+    html,body {
+      background:var(--beige-50) !important;
+      color:var(--text-900) !important;
+      margin:0; padding:0;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    header,nav {
+      background:var(--beige-50) !important;
+      box-shadow:none !important;
+    }
+    main, section {
+      background:transparent !important;
+    }
+  </style>
 </head>
 <body>
 
-  <!-- ========== HEADER ========== -->
+  <!-- ========= HEADER ========= -->
   <header class="site-header">
     <div class="container nav-wrap">
       <!-- Logo -->
@@ -25,82 +47,39 @@
     </div>
   </header>
 
+  <!-- ========= HERO ========= -->
   <main id="indhold">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hundelykke.dk</title>
-
-  <!-- Stylesheet skal ligge HER -->
-  <link rel="stylesheet" href="./assets/styles.css">
-
-  <!-- evt. favicon osv. -->
-</head>
-<style>
-  :root { --beige-50:#F5EFE6; --text-900:#0f172a; }
-  html,body { background:var(--beige-50) !important; color:var(--text-900) !important; margin:0; padding:0; }
-  header,nav { background:var(--beige-50) !important; }
-</style>
-
-    <!-- ========== HERO ========== -->
     <section class="hero">
       <div class="container hero-grid">
-        <figure class="hero-media">
-        - <img src="assets/færdighero.jpg" alt="To hunde ligger på tæppe – Hundelykke">
-+ <img src="assets/hero.png" alt="To hunde ligger på tæppe – Hundelykke">
+        <img src="assets/faerdighero.jpg" alt="Hero billede" class="hero-img">
 
-        </figure>
-        <div class="hero-cta">
+        <div class="hero-text">
           <h1>Velkommen til Hundelykke</h1>
           <p>Luksus hundeudstyr i nordisk stil – leveret hurtigt til hele Danmark.</p>
-          <a href="/shop.html" class="btn-cta">Shop nu</a>
+          <a href="#produkter" class="btn">Shop nu</a>
         </div>
       </div>
     </section>
-        
 
-    <!-- ========== PRODUKTER ========== -->
-    <section class="products container">
+    <!-- ========= PRODUKTER ========= -->
+    <section id="produkter">
       <h2>Udvalgte produkter</h2>
       <div class="product-grid">
-        <a href="/products/produkt1.html" class="product-card">
-          <img src="assets/products/produkt1.jpg" alt="Produkt 1">
-          <h3>Luksus Hundeseng</h3>
-          <p>Blød og stilren hundeseng i nordisk design.</p>
-        </a>
-        <a href="/products/produkt2.html" class="product-card">
-          <img src="assets/products/produkt2.jpg" alt="Produkt 2">
-          <h3>Eksklusive Godbidder</h3>
-          <p>Sunde og lækre snacks til din hund.</p>
-        </a>
-        <a href="/products/produkt3.html" class="product-card">
-          <img src="assets/products/produkt3.jpg" alt="Produkt 3">
-          <h3>Håndlavet Hundehalsbånd</h3>
-          <p>Kvalitetshalsbånd i læder med nordisk look.</p>
-        </a>
+        <div class="card product-card">
+          <img src="assets/produkt1.jpg" alt="Produkt 1">
+          <h3>Produkt 1</h3>
+        </div>
+        <div class="card product-card">
+          <img src="assets/produkt2.jpg" alt="Produkt 2">
+          <h3>Produkt 2</h3>
+        </div>
       </div>
     </section>
-
-    <!-- ========== OM HUNDELYKKE ========== -->
-    <section id="om" class="about container">
-      <h2>Om Hundelykke</h2>
-      <p>Hos Hundelykke.dk tror vi på, at hunde er en del af familien. 
-         Vi tilbyder nøje udvalgte produkter med fokus på kvalitet, nordisk design og hurtig levering.</p>
-    </section>
-
-    <!-- ========== KONTAKT OS ========== -->
-    <section id="kontakt" class="contact">
-      <div class="container">
-        <h2>Kontakt os</h2>
-        <p>Har du spørgsmål? Skriv til os på <a href="mailto:ma10falk@gmail.com">ma10falk@gmail.com</a></p>
-        <p>eller ring på <a href="tel:+4524203041">+45 24 20 30 41</a></p>
-      </div>
-    </section>
-
   </main>
 
 </body>
 </html>
+
 
 
 
