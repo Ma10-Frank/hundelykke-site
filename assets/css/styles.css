@@ -163,4 +163,59 @@ img{
 @media (max-width: 860px){
   .hlk-about .hlk-about-grid{ grid-template-columns:1fr; }
 }
+/* ===== Kategori-menu (fliser) ===== */
+.hlk-cat-grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 14px;
+}
+
+.hlk-cat{
+  --img: none; /* fallback hvis der ikke er billede */
+  position: relative;
+  display: block;
+  aspect-ratio: 1 / 1;            /* kvadratiske fliser */
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--bg);          /* beige fallback */
+  box-shadow: var(--shadow);
+  transform: translateZ(0);       /* smooth hover på mobil */
+  transition: transform .12s ease, box-shadow .2s ease;
+}
+
+/* Billedet + overlay (gradient øverst, billede under) */
+.hlk-cat::before{
+  content: "";
+  position: absolute; inset: 0;
+  background-image: linear-gradient(180deg, rgba(0,0,0,.0) 38%, rgba(0,0,0,.38) 100%), var(--img);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Label */
+.hlk-cat > span{
+  position: absolute;
+  left: 10px; bottom: 10px;
+  color: #fff;
+  font-weight: 800;
+  letter-spacing: .2px;
+  text-shadow: 0 2px 6px rgba(0,0,0,.45);
+  font-size: clamp(.95rem, 2.1vw, 1.05rem);
+}
+
+/* Tilgængelighed + interaktion */
+.hlk-cat:focus-visible{
+  outline: 2px solid var(--brand);
+  outline-offset: 2px;
+}
+.hlk-cat:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px rgba(0,0,0,.12);
+}
+
+/* Lidt tættere grid på store skærme */
+@media (min-width: 1100px){
+  .hlk-cat-grid{ gap: 16px; }
+}
 
