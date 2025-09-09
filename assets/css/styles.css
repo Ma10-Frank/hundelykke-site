@@ -278,7 +278,7 @@ img{
 .hlk-btn--ghost:hover{
   border-color: rgba(0,0,0,.28);
 }
-/* ===== Kategori-kort: billede + overlay i ét lag ===== */
+/* ===== Kategori-kort: billede + overlay ===== */
 .hlk-cat{
   display: block;
   position: relative;
@@ -287,16 +287,15 @@ img{
   min-height: 160px;
   text-decoration: none;
 
-  /* vigtig del: to baggrunde – gradient øverst, billedet nederst */
+  /* to baggrunde: gradient øverst, billedet nederst via var(--img) */
   background-image:
     linear-gradient(to bottom, rgba(0,0,0,0) 55%, rgba(0,0,0,.38) 100%),
     var(--img);
-  background-size: 100% 100%, cover;     /* overlay fylder hele kortet, billedet cover */
+  background-size: 100% 100%, cover;
   background-position: center, center;
   background-repeat: no-repeat, no-repeat;
 }
 
-/* Teksten nederst */
 .hlk-cat > span{
   position: absolute;
   left: 14px;
@@ -306,3 +305,31 @@ img{
   letter-spacing: .2px;
   text-shadow: 0 1px 2px rgba(0,0,0,.25);
 }
+/* ===== Kategori-kort: baggrundsbilleder ===== */
+.hlk-cat{
+  display: block;
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  min-height: 160px;
+  text-decoration: none;
+
+  /* to baggrunde: gradient + billede */
+  background-image:
+    linear-gradient(to bottom, rgba(0,0,0,0) 55%, rgba(0,0,0,.38) 100%),
+    var(--img);
+  background-size: 100% 100%, cover;
+  background-position: center, center;
+  background-repeat: no-repeat, no-repeat;
+}
+
+.hlk-cat > span{
+  position: absolute;
+  left: 14px;
+  bottom: 12px;
+  color: #fff;
+  font-weight: 800;
+  letter-spacing: .2px;
+  text-shadow: 0 1px 2px rgba(0,0,0,.25);
+}
+
