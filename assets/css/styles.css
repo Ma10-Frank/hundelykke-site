@@ -163,64 +163,52 @@ img{
 @media (max-width: 860px){
   .hlk-about .hlk-about-grid{ grid-template-columns:1fr; }
 }
-/* ===== Kategori-menu (fliser) ===== */
+/* ===== Kategori: grid + kort ===== */
+
+/* Selve containeren rundt om kategori-links */
 .hlk-cat-grid{
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 14px;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 16px;
+  max-width: 1200px;
+  margin: 20px auto;       /* centrer gridden på siden */
+  align-items: stretch;    /* alle kort bliver samme højde */
 }
 
-.hlk-cat {
+/* Hvert kategori-kort (link) */
+.hlk-cat{
   position: relative;
   display: block;
-  aspect-ratio: 1 / 1;              /* kvadratiske fliser */
+  aspect-ratio: 1 / 1;     /* kvadratisk kort; ændr til 4/3 hvis du vil */
   border-radius: 16px;
   overflow: hidden;
-  background: linear-gradient(       /* let skygge + billede */
-    rgba(0, 0, 0, 0.15),
-    rgba(0, 0, 0, 0.15)
-  ), var(--img) center/cover no-repeat;
-  box-shadow: var(--shadow);
-  transform: translateZ(0);          /* smooth hover på mobil */
-  transition: transform .12s ease, box-shadow .2s ease;
+  text-decoration: none;
+  background:
+    /* mørk fade i bunden til læsbar tekst */
+    linear-gradient(to bottom, rgba(0,0,0,0) 55%, rgba(0,0,0,.38) 100%),
+    /* billedet kommer fra inline CSS-variablen --img */
+    var(--img) center/cover no-repeat;
 }
 
-
-/* Billedet + overlay (gradient øverst, billede under) */
-.hlk-cat::before{
-  content: "";
-  position: absolute; inset: 0;
-  background-image: linear-gradient(180deg, rgba(0,0,0,.0) 38%, rgba(0,0,0,.38) 100%), var(--img);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-/* Label */
-.hlk-cat > span{
+/* Teksten nederst i kortet */
+.hlk-cat span{
   position: absolute;
-  left: 10px; bottom: 10px;
+  left: 12px;
+  bottom: 12px;
   color: #fff;
   font-weight: 800;
   letter-spacing: .2px;
-  text-shadow: 0 2px 6px rgba(0,0,0,.45);
-  font-size: clamp(.95rem, 2.1vw, 1.05rem);
+  text-shadow: 0 1px 2px rgba(0,0,0,.25);
 }
 
-/* Tilgængelighed + interaktion */
-.hlk-cat:focus-visible{
-  outline: 2px solid var(--brand);
-  outline-offset: 2px;
+/* Små responsive tweaks (frivilligt) */
+@media (max-width: 480px){
+  .hlk-cat-grid{ grid-template-columns: repeat(2, 1fr); }
 }
-.hlk-cat:hover{
-  transform: translateY(-2px);
-  box-shadow: 0 14px 30px rgba(0,0,0,.12);
-}
-
-/* Lidt tættere grid på store skærme */
 @media (min-width: 1100px){
-  .hlk-cat-grid{ gap: 16px; }
+  .hlk-cat-grid{ grid-template-columns: repeat(5, 1fr); }
 }
+
 
 /* ===== Produktkort grid ===== */
 .hlk-products{
@@ -282,63 +270,7 @@ img{
   border-color: rgba(0,0,0,.28);
 
 }
-/* ===== Kategori-kort: billede + overlay (single source of truth) ===== */
-.hlk-cat {
-  position: relative;
-  display: block;
-  width: 160px;     /* 👈 mindre bredde */
-  height: 160px;    /* 👈 mindre højde */
-  border-radius: 16px;
-  overflow: hidden;
-  text-decoration: none;
-  background:
-    linear-gradient(to bottom, rgba(0,0,0,0) 55%, rgba(0,0,0,.38) 100%),
-    var(--img) center/cover no-repeat;
-}
 
-/* ===== Kategori-grid ===== */
-.hlk-cat-grid{
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 20px;
-  justify-items: center;   /* centrer kortene i cellerne */
-  align-items: stretch;    /* samme højde */
-  /* ingen width/margin her */
-}
-
-/* Kategori-kort størrelse (du har 160px; fint til mobil/desktop) */
-.hlk-cat{
-  position: relative;
-  display: block;
-  width: 160px;
-  height: 160px;
-  border-radius: 16px;
-  overflow: hidden;
-  text-decoration: none;
-  background:
-    linear-gradient(to bottom, rgba(0,0,0,0) 55%, rgba(0,0,0,.38) 100%),
-    var(--img) center/cover no-repeat;
-}
-/* === FIX: Kategori-grid tvang === */
-nav.hlk-cat-grid{
-  display: grid !important;
-  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)) !important;
-  gap: 20px !important;
-  max-width: 1200px;
-  margin: 20px auto;  /* centrer hele gridden */
-}
-
-.hlk-cat{
-  display: block !important;
-  width: 100% !important;         /* fyld grid-cellen vandret */
-  aspect-ratio: 1 / 1;            /* kvadrat */
-  border-radius: 16px;
-  overflow: hidden;
-  text-decoration: none;
-  background:
-    linear-gradient(to bottom, rgba(0,0,0,0) 55%, rgba(0,0,0,.38) 100%),
-    var(--img) center/cover no-repeat !important;
-}
 
 
 
