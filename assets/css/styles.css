@@ -296,5 +296,41 @@ img{
     var(--img) center/cover no-repeat;
 }
 
+/* ===== Kategori-grid ===== */
+.hlk-cat-grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 16px;
+  justify-items: center;   /* centrer felterne i deres kolonne */
+  align-items: stretch;    /* gør alle lige høje */
+  margin: 20px 0;
+}
+
+/* Kategori-kort størrelse (du har 160px; fint til mobil/desktop) */
+.hlk-cat{
+  position: relative;
+  display: block;
+  width: 160px;
+  height: 160px;
+  border-radius: 16px;
+  overflow: hidden;
+  text-decoration: none;
+  background:
+    linear-gradient(to bottom, rgba(0,0,0,0) 55%, rgba(0,0,0,.38) 100%),
+    var(--img) center/cover no-repeat;
+}
+
+/* Lidt flere kolonner på større skærme (valgfrit) */
+@media (min-width: 720px){
+  .hlk-cat-grid{
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 20px;
+  }
+}
+@media (min-width: 1024px){
+  .hlk-cat-grid{
+    grid-template-columns: repeat(4, minmax(160px, 1fr));
+  }
+}
 
 
