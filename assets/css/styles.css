@@ -300,10 +300,10 @@ img{
 .hlk-cat-grid{
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 16px;
-  justify-items: center;   /* centrer felterne i deres kolonne */
-  align-items: stretch;    /* gør alle lige høje */
-  margin: 20px 0;
+  gap: 20px;
+  justify-items: center;   /* centrer kortene i cellerne */
+  align-items: stretch;    /* samme højde */
+  /* ingen width/margin her */
 }
 
 /* Kategori-kort størrelse (du har 160px; fint til mobil/desktop) */
