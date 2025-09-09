@@ -170,18 +170,21 @@ img{
   gap: 14px;
 }
 
-.hlk-cat{
-  --img: none; /* fallback hvis der ikke er billede */
+.hlk-cat {
   position: relative;
   display: block;
-  aspect-ratio: 1 / 1;            /* kvadratiske fliser */
+  aspect-ratio: 1 / 1;              /* kvadratiske fliser */
   border-radius: 16px;
   overflow: hidden;
-  background: var(--bg);          /* beige fallback */
+  background: linear-gradient(       /* let skygge + billede */
+    rgba(0, 0, 0, 0.15),
+    rgba(0, 0, 0, 0.15)
+  ), var(--img) center/cover no-repeat;
   box-shadow: var(--shadow);
-  transform: translateZ(0);       /* smooth hover på mobil */
+  transform: translateZ(0);          /* smooth hover på mobil */
   transition: transform .12s ease, box-shadow .2s ease;
 }
+
 
 /* Billedet + overlay (gradient øverst, billede under) */
 .hlk-cat::before{
