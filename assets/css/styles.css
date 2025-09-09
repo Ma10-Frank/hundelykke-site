@@ -278,80 +278,25 @@ img{
 .hlk-btn--ghost:hover{
   border-color: rgba(0,0,0,.28);
 }
-/* ===== Kategori-kort ===== */
+/* ===== Kategori-kort: billede + overlay i ét lag ===== */
 .hlk-cat{
-  position: relative;
   display: block;
-  border-radius: 16px;
-  overflow: hidden;
-  min-height: 160px;          /* sikrer højde på kortet */
-  background-color: #e9e1d6;  /* beige fallback hvis billede mangler */
-  text-decoration: none;
-}
-
-/* Billedet lægges i eget lag */
-.hlk-cat::before{
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: var(--img) center / cover no-repeat;
-}
-
-/* Mørk gradient ovenpå billedet */
-.hlk-cat::after{
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to bottom, rgba(0,0,0,0) 55%, rgba(0,0,0,.38) 100%);
-}
-
-/* Kategori-teksten nederst */
-.hlk-cat > span{
-  position: absolute;
-  left: 14px;
-  bottom: 12px;
-  color: #fff;
-  font-weight: 800;
-  letter-spacing: .2px;
-  text-shadow: 0 1px 2px rgba(0,0,0,.25);
-}
-/* ====== Kategori-kort: billede + gradient i lag ====== */
-.hlk-cat{
   position: relative;
-  display: block;
   border-radius: 16px;
   overflow: hidden;
   min-height: 160px;
-  background-color: #e9e1d6;   /* beige fallback */
   text-decoration: none;
+
+  /* vigtig del: to baggrunde – gradient øverst, billedet nederst */
+  background-image:
+    linear-gradient(to bottom, rgba(0,0,0,0) 55%, rgba(0,0,0,.38) 100%),
+    var(--img);
+  background-size: 100% 100%, cover;     /* overlay fylder hele kortet, billedet cover */
+  background-position: center, center;
+  background-repeat: no-repeat, no-repeat;
 }
 
-/* Billed-laget */
-.hlk-cat::before{
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image: var(--img);
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  z-index: 0;
-}
-
-/* Gradient-laget over billedet (med gennemsigtighed) */
-.hlk-cat::after{
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image: linear-gradient(
-    to bottom,
-    rgba(0,0,0,0) 55%,
-    rgba(0,0,0,0.38) 100%
-  );
-  z-index: 1;
-}
-
-/* Teksten nederst, øverst i z-rækkefølgen */
+/* Teksten nederst */
 .hlk-cat > span{
   position: absolute;
   left: 14px;
@@ -360,5 +305,4 @@ img{
   font-weight: 800;
   letter-spacing: .2px;
   text-shadow: 0 1px 2px rgba(0,0,0,.25);
-  z-index: 2;
 }
