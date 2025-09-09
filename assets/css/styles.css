@@ -283,11 +283,11 @@ img{
 
 }
 /* ===== Kategori-kort: billede + overlay (single source of truth) ===== */
-.hlk-cat{
+.hlk-cat {
   position: relative;
   display: block;
-  width: 200px;          /* 👈 fast bredde */
-  height: 200px;         /* 👈 fast højde */
+  width: 160px;     /* 👈 mindre bredde */
+  height: 160px;    /* 👈 mindre højde */
   border-radius: 16px;
   overflow: hidden;
   text-decoration: none;
@@ -296,6 +296,5 @@ img{
     var(--img) center/cover no-repeat;
 }
 
-}
 
 
