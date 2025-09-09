@@ -319,6 +319,26 @@ img{
     linear-gradient(to bottom, rgba(0,0,0,0) 55%, rgba(0,0,0,.38) 100%),
     var(--img) center/cover no-repeat;
 }
+/* === FIX: Kategori-grid tvang === */
+nav.hlk-cat-grid{
+  display: grid !important;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)) !important;
+  gap: 20px !important;
+  max-width: 1200px;
+  margin: 20px auto;  /* centrer hele gridden */
+}
+
+.hlk-cat{
+  display: block !important;
+  width: 100% !important;         /* fyld grid-cellen vandret */
+  aspect-ratio: 1 / 1;            /* kvadrat */
+  border-radius: 16px;
+  overflow: hidden;
+  text-decoration: none;
+  background:
+    linear-gradient(to bottom, rgba(0,0,0,0) 55%, rgba(0,0,0,.38) 100%),
+    var(--img) center/cover no-repeat !important;
+}
 
 
 
