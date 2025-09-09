@@ -315,3 +315,50 @@ img{
   letter-spacing: .2px;
   text-shadow: 0 1px 2px rgba(0,0,0,.25);
 }
+/* ====== Kategori-kort: billede + gradient i lag ====== */
+.hlk-cat{
+  position: relative;
+  display: block;
+  border-radius: 16px;
+  overflow: hidden;
+  min-height: 160px;
+  background-color: #e9e1d6;   /* beige fallback */
+  text-decoration: none;
+}
+
+/* Billed-laget */
+.hlk-cat::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: var(--img);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: 0;
+}
+
+/* Gradient-laget over billedet (med gennemsigtighed) */
+.hlk-cat::after{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0) 55%,
+    rgba(0,0,0,0.38) 100%
+  );
+  z-index: 1;
+}
+
+/* Teksten nederst, øverst i z-rækkefølgen */
+.hlk-cat > span{
+  position: absolute;
+  left: 14px;
+  bottom: 12px;
+  color: #fff;
+  font-weight: 800;
+  letter-spacing: .2px;
+  text-shadow: 0 1px 2px rgba(0,0,0,.25);
+  z-index: 2;
+}
