@@ -286,15 +286,16 @@ img{
 .hlk-cat{
   position: relative;
   display: block;
+  width: 200px;          /* 👈 fast bredde */
+  height: 200px;         /* 👈 fast højde */
   border-radius: 16px;
   overflow: hidden;
-  min-height: 160px;
   text-decoration: none;
-
-  /* gradient øverst + billede via --img nederst */
   background:
     linear-gradient(to bottom, rgba(0,0,0,0) 55%, rgba(0,0,0,.38) 100%),
     var(--img) center/cover no-repeat;
+}
+
 }
 
 
