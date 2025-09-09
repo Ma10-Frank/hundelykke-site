@@ -219,3 +219,62 @@ img{
   .hlk-cat-grid{ gap: 16px; }
 }
 
+/* ===== Produktkort grid ===== */
+.hlk-products{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+.hlk-card.hlk-product{
+  display: grid;
+  grid-template-rows: auto 1fr;
+  border-radius: var(--radius);
+  background: #fff;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+.hlk-product-imgwrap{
+  display: block;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+}
+.hlk-product-imgwrap img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.hlk-product-body{
+  padding: 14px 14px 16px;
+}
+.hlk-product-title{
+  margin: 0 0 4px;
+  font-size: 1rem;
+  line-height: 1.25;
+}
+.hlk-product-title a{
+  color: inherit;
+  text-decoration: none;
+}
+.hlk-product-title a:hover{ text-decoration: underline; }
+
+.hlk-price{
+  margin: 0 0 6px;
+  font-weight: 800;
+  color: var(--brand);
+}
+.hlk-snippet{
+  margin: 0 0 12px;
+  color: var(--muted);
+  font-size: .95rem;
+}
+
+/* “Ghost” knap som passer til dit tema */
+.hlk-btn--ghost{
+  background: transparent;
+  border: 1px solid rgba(0,0,0,.12);
+  color: var(--text);
+}
+.hlk-btn--ghost:hover{
+  border-color: rgba(0,0,0,.28);
+}
