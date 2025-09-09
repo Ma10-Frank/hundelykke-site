@@ -280,59 +280,21 @@ img{
 }
 .hlk-btn--ghost:hover{
   border-color: rgba(0,0,0,.28);
+
 }
-/* ===== Kategori-kort: billede + overlay ===== */
+/* ===== Kategori-kort: billede + overlay (single source of truth) ===== */
 .hlk-cat{
-  display: block;
   position: relative;
+  display: block;
   border-radius: 16px;
   overflow: hidden;
   min-height: 160px;
   text-decoration: none;
 
-  /* to baggrunde: gradient øverst, billedet nederst via var(--img) */
-  background-image:
+  /* gradient øverst + billede via --img nederst */
+  background:
     linear-gradient(to bottom, rgba(0,0,0,0) 55%, rgba(0,0,0,.38) 100%),
-    var(--img);
-  background-size: 100% 100%, cover;
-  background-position: center, center;
-  background-repeat: no-repeat, no-repeat;
+    var(--img) center/cover no-repeat;
 }
 
-.hlk-cat > span{
-  position: absolute;
-  left: 14px;
-  bottom: 12px;
-  color: #fff;
-  font-weight: 800;
-  letter-spacing: .2px;
-  text-shadow: 0 1px 2px rgba(0,0,0,.25);
-}
-/* ===== Kategori-kort: baggrundsbilleder ===== */
-.hlk-cat{
-  display: block;
-  position: relative;
-  border-radius: 16px;
-  overflow: hidden;
-  min-height: 160px;
-  text-decoration: none;
-
-  /* to baggrunde: gradient + billede */
-  background-image:
-    linear-gradient(to bottom, rgba(0,0,0,0) 55%, rgba(0,0,0,.38) 100%),
-    var(--img);
-  background-size: 100% 100%, cover;
-  background-position: center, center;
-  background-repeat: no-repeat, no-repeat;
-}
-
-.hlk-cat > span{
-  position: absolute;
-  left: 14px;
-  bottom: 12px;
-  color: #fff;
-  font-weight: 800;
-  letter-spacing: .2px;
-  text-shadow: 0 1px 2px rgba(0,0,0,.25);
-}
 
