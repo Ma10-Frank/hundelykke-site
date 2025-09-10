@@ -239,6 +239,24 @@ img{
 
   transition: transform .15s ease, box-shadow .2s ease;
 }
+/* ===== Kategori grid layout ===== */
+.hlk-cat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* minimum 150px */
+  gap: 20px;               /* afstand mellem kasser */
+  max-width: 1200px;       /* gør det ikke alt for bredt */
+  margin: 24px auto;       /* centrer grid på siden */
+  padding: 0 16px;         /* lidt luft i kanterne */
+  justify-items: center;   /* centrer hver kasse i sin celle */
+  align-items: stretch;    /* gør alle lige høje */
+}
+
+/* 5 kolonner på brede skærme */
+@media (min-width: 1200px) {
+  .hlk-cat-grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
 
 .hlk-cat:hover{
   transform: translateY(-2px);
