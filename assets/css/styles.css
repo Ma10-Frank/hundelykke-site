@@ -224,11 +224,13 @@ img{
 .hlk-cat{
   position: relative;
   display: block;
-  width: 100%;
-  aspect-ratio: 1 / 1;           /* kvadratisk kort */
+  width: 150px;
+  height: 150px;
   border-radius: 16px;
   overflow: hidden;
   text-decoration: none;
+  background: linear-gradient(to bottom, rgba(0,0,0,0) 55%, rgba(0,0,0,.38) 100%),
+              var(--img) center/cover no-repeat;
 
   /* billede + mørk gradient nederst (giver læsbar label) */
   background:
