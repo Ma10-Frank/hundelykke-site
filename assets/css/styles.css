@@ -191,30 +191,34 @@ img{
 }
 
 
-
-/* ===== Produktkort grid ===== */
-
-.hlk-cat-grid{
+/* ===== Produktkort – horizontal scroller ===== */
+.hlk-products{
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 20px;
-
-  /* center grid på desktop */
-  max-width: 1200px;
-  width: 100%;
-  margin: 24px auto;
-  padding: 0 16px;
-
-  justify-items: center;   /* center hvert kort i sin celle */
-  align-items: stretch;    /* ens højde */
+  grid-auto-flow: column;             /* læg kort på række vandret */
+  grid-auto-columns: minmax(220px, 1fr);
+  gap: 16px;
+  overflow-x: auto;                   /* scroll sidelæns */
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;      /* snap pænt ved scroll */
+  -webkit-overflow-scrolling: touch;
+  padding: 0 16px 6px;
 }
 
-/* 5 kolonner på brede skærme */
-@media (min-width: 1200px){
-  .hlk-cat-grid{
-    grid-template-columns: repeat(5, 1fr);
-  }
+/* hvert produktkort */
+.hlk-products > .hlk-card{
+  scroll-snap-align: start;
+  width: 220px;                       /* ens, kompakt bredde */
+  max-width: 260px;
 }
+
+/* (valgfri) pæn, lav scrollbar */
+.hlk-products::-webkit-scrollbar{ height: 8px; }
+.hlk-products::-webkit-scrollbar-thumb{
+  background: rgba(0,0,0,.2);
+  border-radius: 4px;
+}
+
+
 
 /* ===== Kategori-kort: størrelse + overlay + label ===== */
 .hlk-cat{
