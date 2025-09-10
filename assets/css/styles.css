@@ -197,7 +197,7 @@ img{
 .hlk-cat-grid{
   display: grid;
   /* 180px wide minimum tiles; fill the row across (wraps on small screens) */
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  grid-template-columns: repeat(5, 1fr); /* præcis 5 kolonner */
   gap: 16px;
 
   /* keep the row centered and not edge-to-edge on desktop */
