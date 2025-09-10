@@ -190,32 +190,28 @@ img{
   box-shadow: 0 14px 30px rgba(0,0,0,.12);
 }
 
-
-/* ===== Produktkort – horizontal scroller ===== */
-.hlk-products{
-  display: grid;
-  grid-auto-flow: column;             /* læg kort på række vandret */
-  grid-auto-columns: minmax(220px, 1fr);
+/* ==== Udvalgte produkter scroll ==== */
+.hlk-scroll {
+  display: flex;
+  overflow-x: auto;
   gap: 16px;
-  overflow-x: auto;                   /* scroll sidelæns */
-  overscroll-behavior-x: contain;
-  scroll-snap-type: x mandatory;      /* snap pænt ved scroll */
-  -webkit-overflow-scrolling: touch;
-  padding: 0 16px 6px;
+  padding: 16px;
+  scroll-snap-type: x mandatory;
 }
 
-/* hvert produktkort */
-.hlk-products > .hlk-card{
-  scroll-snap-align: start;
-  width: 220px;                       /* ens, kompakt bredde */
-  max-width: 260px;
+.hlk-scroll::-webkit-scrollbar {
+  height: 8px;
 }
 
-/* (valgfri) pæn, lav scrollbar */
-.hlk-products::-webkit-scrollbar{ height: 8px; }
-.hlk-products::-webkit-scrollbar-thumb{
-  background: rgba(0,0,0,.2);
+.hlk-scroll::-webkit-scrollbar-thumb {
+  background: #ccc;
   border-radius: 4px;
+}
+
+.hlk-scroll > article {
+  flex: 0 0 auto;
+  width: 220px;   /* fast bredde pr. produktkort */
+  scroll-snap-align: start;
 }
 
 
