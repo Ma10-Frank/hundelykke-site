@@ -194,19 +194,47 @@ img{
 
 /* ===== Produktkort grid ===== */
 
-.hlk-cat-grid{
-  display: grid;
-  /* 180px wide minimum tiles; fill the row across (wraps on small screens) */
-  grid-template-columns: repeat(5, 1fr); /* præcis 5 kolonner */
-  gap: 16px;
-
-  /* keep the row centered and not edge-to-edge on desktop */
-  max-width: 1200px;
-  margin: 20px auto;
-
-  justify-items: center; /* center tiles in each grid cell */
-  align-items: stretch;  /* tiles stretch to same height */
+.hlk-cat{
+  position: relative;
+  display: block;
+  border-radius: 16px;
+  overflow: hidden;
+  text-decoration: none;     /* fjern link-underline */
+  min-height: 200px;         /* fast korthøjde */
+  background:
+    linear-gradient(to bottom, rgba(0,0,0,0) 55%, rgba(0,0,0,.38) 100%),
+    var(--img) center/cover no-repeat;
+  box-shadow: 0 8px 24px rgba(0,0,0,.08);
 }
+
+/* Grøn pille med hvid tekst nederst til venstre */
+.hlk-cat span{
+  position: absolute;
+  left: 14px;
+  bottom: 14px;
+  background: var(--brand, #1f6f5d);
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 9999px;
+  font-weight: 700;
+  letter-spacing: .2px;
+  text-decoration: none;
+  box-shadow: 0 6px 16px rgba(0,0,0,.18);
+}
+
+/* sikrer at linkfarve ikke bliver blå */
+.hlk-cat:link,
+.hlk-cat:visited{
+  color: inherit;
+}
+
+/* lille hover-lift på pille */
+.hlk-cat:hover span{
+  transform: translateY(-2px);
+  transition: transform .15s ease;
+}
+
+
 
 
 
