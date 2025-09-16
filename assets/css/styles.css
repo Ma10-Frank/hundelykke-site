@@ -195,7 +195,7 @@ img{
 
   /* VIGTIGT: ingen faste px-mål – brug 4:3 som første gang */
   width: 100%;
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 3/ 2;
 
   border-radius: 16px;
   overflow: hidden;
