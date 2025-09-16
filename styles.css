@@ -370,3 +370,109 @@ main h3 {
     margin: 24px 0 12px;
   }
 }
+/* TILFØJ DISSE RETTELSER TIL DIN STYLES.CSS */
+
+/* Fix kategori grid overlap */
+.hlk-cat-grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  padding: 24px 16px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Bedre kategori responsivitet */
+@media (min-width: 768px) {
+  .hlk-cat-grid{ 
+    grid-template-columns: repeat(3, 1fr); 
+  }
+}
+
+@media (min-width: 1024px) {
+  .hlk-cat-grid{ 
+    grid-template-columns: repeat(5, 1fr); 
+  }
+}
+
+/* Ensartet knap styling - opdater kategori labels */
+.hlk-cat > span{
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 12px;
+  z-index: 2;
+  background: var(--brand);  /* Brug samme grøn som andre knapper */
+  color: #fff;
+  font-weight: 600;          /* Match andre knapper */
+  font-size: 14px;
+  padding: 10px 16px;        /* Match andre knapper */
+  border-radius: 999px;      /* Match andre knapper */
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: all 0.2s ease; /* Smooth hover */
+}
+
+/* Hover effekt på kategori labels */
+.hlk-cat:hover > span{
+  background: #1a5d4f;      /* Mørkere grøn ved hover */
+  transform: translateY(-1px);
+}
+
+/* Ensartet kategori kort størrelse */
+.hlk-cat{
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 4/3;        /* Konsistent proportioner */
+  border-radius: var(--radius);
+  overflow: hidden;
+  text-decoration: none;
+  box-shadow: var(--shadow);
+  transition: transform .2s ease, box-shadow .3s ease;
+  background: #F4EBDD;
+}
+
+.hlk-cat:hover{
+  transform: translateY(-3px);
+  box-shadow: 0 16px 32px rgba(0,0,0,.15);
+}
+
+/* Fix produktscroll spacing */
+.hlk-scroll {
+  display: flex;
+  overflow-x: auto;
+  gap: 20px;
+  padding: 20px 16px;
+  scroll-snap-type: x mandatory;
+  margin-top: 16px;
+}
+
+/* Bedre responsiv kategori grid */
+@media (max-width: 640px) {
+  .hlk-cat-grid{
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    padding: 16px;
+  }
+  
+  .hlk-cat > span{
+    font-size: 12px;
+    padding: 8px 12px;
+  }
+}
+
+/* Fix kategori billede fokus */
+.hlk-cat-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.3s ease;
+}
+
+.hlk-cat:hover .hlk-cat-img {
+  transform: scale(1.02);
+}
