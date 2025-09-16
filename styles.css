@@ -87,23 +87,26 @@ img{
 }
 .hlk-btn-ghost:hover{ background:var(--brand-ghost); }
 
-/* Ghost button variant for products */
+/* Produktknap variant */
 .hlk-btn--ghost {
   display: inline-block;
-  padding: 8px 16px;
+  padding: 10px 16px;
   border-radius: 999px;
   background: transparent;
   color: var(--brand);
   border: 1px solid var(--brand);
   text-decoration: none;
   font-weight: 600;
-  font-size: 0.9rem;
+  font-size: 14px;
   transition: all 0.2s ease;
   margin-top: auto;
+  text-align: center;
+  min-width: 120px;
 }
 
 .hlk-btn--ghost:hover {
-  background: var(--brand-ghost);
+  background: var(--brand);
+  color: #fff;
   transform: translateY(-1px);
 }
 
@@ -121,24 +124,21 @@ img{
   box-shadow: var(--shadow);
 }
 
-/* Hero billede — responsivt */
 .hlk-hero-img {
   width: 100%;
-  height: auto;             /* bevar proportionerne */
-  max-height: 75vh;         /* fylder aldrig mere end 75% af skærmhøjden */
-  object-fit: cover;        /* beskær blidt hvis nødvendigt */
-  object-position: center;  /* fokus i midten */
+  height: auto;
+  max-height: 75vh;
+  object-fit: cover;
+  object-position: center;
   display: block;
 }
 
-/* Overlay */
 .hlk-hero-overlay {
   position: absolute;
   inset: 0;
   background: linear-gradient(to top, rgba(0,0,0,.32), rgba(0,0,0,.06));
 }
 
-/* Tekst i hero */
 .hlk-hero-content {
   position: absolute;
   inset: 0;
@@ -162,8 +162,8 @@ img{
 /* Mobil tilpasning */
 @media (max-width: 768px) {
   .hlk-hero-img {
-    max-height: 50vh;          /* lavere højde på små skærme */
-    object-position: center top; /* viser mere af toppen */
+    max-height: 50vh;
+    object-position: center top;
   }
 }
 
@@ -172,70 +172,97 @@ img{
   position: relative;
   display: block;
   width: 100%;
-  aspect-ratio: 3/ 2;
-  border-radius: 16px;
+  aspect-ratio: 4/3;
+  border-radius: var(--radius);
   overflow: hidden;
   text-decoration: none;
-  box-shadow: 0 6px 14px rgba(0,0,0,.08);
-  transition: transform .15s ease, box-shadow .2s ease;
-  background: #F4EBDD; /* beige fallback bag billedet */
+  box-shadow: var(--shadow);
+  transition: transform .2s ease, box-shadow .3s ease;
+  background: #F4EBDD;
 }
 
-/* Kategori billeder */
+.hlk-cat:hover{
+  transform: translateY(-3px);
+  box-shadow: 0 16px 32px rgba(0,0,0,.15);
+}
+
 .hlk-cat-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center;
+  transition: transform 0.3s ease;
 }
 
-/* Mørk bund-gradient over billedet */
+.hlk-cat:hover .hlk-cat-img {
+  transform: scale(1.02);
+}
+
 .hlk-cat::after{
   content: "";
   position: absolute;
   inset: 0;
   background: linear-gradient(to bottom, rgba(0,0,0,0) 48%, rgba(0,0,0,.38) 100%);
   pointer-events: none;
-  z-index: 1;                    /* under labelen */
+  z-index: 1;
 }
 
-/* Label (grøn pille) — altid synlig og centreret */
 .hlk-cat > span{
   position: absolute;
-  left: 8px;
-  right: 8px;
-  bottom: 10px;
-  z-index: 2;            /* over gradient */
-  transform: none;
-  background: #1E6A57;
+  left: 12px;
+  right: 12px;
+  bottom: 12px;
+  z-index: 2;
+  background: var(--brand);
   color: #fff;
-  font-weight: 700;
-  font-size: clamp(11px, 1.2vw, 14px);
-  padding: 6px 10px;
+  font-weight: 600;
+  font-size: 14px;
+  padding: 10px 16px;
   border-radius: 999px;
   text-align: center;
   white-space: nowrap;
   overflow: hidden;
-  text-overflow: clip;
+  text-overflow: ellipsis;
+  transition: all 0.2s ease;
 }
 
-/* Grid: lidt større kort på tværs af skærme */
+.hlk-cat:hover > span{
+  background: #1a5d4f;
+  transform: translateY(-1px);
+}
+
 .hlk-cat-grid{
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-  gap: 18px;
-  padding: 0 16px 24px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  padding: 24px 16px;
   max-width: 1200px;
   margin: 0 auto;
 }
 
-@media (min-width: 1200px){
-  .hlk-cat-grid{ grid-template-columns: repeat(5, 1fr); }
+@media (min-width: 768px) {
+  .hlk-cat-grid{ 
+    grid-template-columns: repeat(3, 1fr); 
+  }
 }
 
-.hlk-cat:hover{
-  transform: translateY(-2px);
-  box-shadow: 0 14px 30px rgba(0,0,0,.12);
+@media (min-width: 1024px) {
+  .hlk-cat-grid{ 
+    grid-template-columns: repeat(5, 1fr); 
+  }
+}
+
+@media (max-width: 640px) {
+  .hlk-cat-grid{
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    padding: 16px;
+  }
+  
+  .hlk-cat > span{
+    font-size: 12px;
+    padding: 8px 12px;
+  }
 }
 
 /* Finjustér billed-fokus pr. kategori */
@@ -244,47 +271,59 @@ img{
 .hlk-cat[href*="seler"] .hlk-cat-img      { object-position: center 55%; }
 .hlk-cat[href*="foder"] .hlk-cat-img      { object-position: center 50%; }
 
-/* ==== Udvalgte produkter scroll ==== */
+/* ===== Produktkort ===== */
 .hlk-scroll {
   display: flex;
   overflow-x: auto;
-  gap: 16px;
-  padding: 16px;
+  gap: 20px;
+  padding: 20px 16px 32px;
   scroll-snap-type: x mandatory;
-}
-
-.hlk-scroll::-webkit-scrollbar {
-  height: 8px;
-}
-
-.hlk-scroll::-webkit-scrollbar-thumb {
-  background: #ccc;
-  border-radius: 4px;
+  margin-top: 8px;
 }
 
 .hlk-scroll > article {
   flex: 0 0 auto;
-  width: 220px;   /* fast bredde pr. produktkort */
+  width: 240px;
   scroll-snap-align: start;
 }
 
-/* Produktkort styling */
+.hlk-scroll::-webkit-scrollbar {
+  height: 6px;
+}
+
+.hlk-scroll::-webkit-scrollbar-track {
+  background: rgba(0,0,0,0.05);
+  border-radius: 3px;
+}
+
+.hlk-scroll::-webkit-scrollbar-thumb {
+  background: var(--brand);
+  border-radius: 3px;
+}
+
+.hlk-scroll::-webkit-scrollbar-thumb:hover {
+  background: #1a5d4f;
+}
+
 .hlk-card {
   background: #fff;
   border-radius: var(--radius);
   box-shadow: var(--shadow);
   overflow: hidden;
   transition: transform 0.2s ease, box-shadow 0.3s ease;
+  border: none;
+  height: 100%;
 }
 
 .hlk-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 16px 32px rgba(0,0,0,.12);
+  transform: translateY(-3px);
+  box-shadow: 0 16px 32px rgba(0,0,0,.15);
 }
 
 .hlk-product {
   display: flex;
   flex-direction: column;
+  height: 100%;
 }
 
 .hlk-product-imgwrap {
@@ -292,6 +331,7 @@ img{
   overflow: hidden;
   aspect-ratio: 4/3;
   background: #f8f9fa;
+  position: relative;
 }
 
 .hlk-product-imgwrap img {
@@ -303,7 +343,7 @@ img{
 }
 
 .hlk-product-imgwrap:hover img {
-  transform: scale(1.05);
+  transform: scale(1.02);
 }
 
 .hlk-product-body {
@@ -311,6 +351,7 @@ img{
   display: flex;
   flex-direction: column;
   flex-grow: 1;
+  background: #fff;
 }
 
 .hlk-product-title {
@@ -318,10 +359,11 @@ img{
   font-size: 1rem;
   font-weight: 600;
   line-height: 1.3;
+  color: var(--text);
 }
 
 .hlk-snippet {
-  margin: 0 0 12px 0;
+  margin: 0 0 16px 0;
   font-size: 0.9rem;
   color: var(--muted);
   line-height: 1.4;
@@ -355,253 +397,6 @@ main h3 {
   .hlk-about .hlk-about-grid{ grid-template-columns:1fr; }
 }
 
-/* Responsiv justering for produktscroll */
-@media (max-width: 768px) {
-  .hlk-scroll {
-    padding: 12px;
-  }
-  
-  .hlk-scroll > article {
-    width: 200px;
-  }
-  
-  main h3 {
-    font-size: 1.3rem;
-    margin: 24px 0 12px;
-  }
-}
-/* TILFØJ DISSE RETTELSER TIL DIN STYLES.CSS */
-
-/* Fix kategori grid overlap */
-.hlk-cat-grid{
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 20px;
-  padding: 24px 16px;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-/* Bedre kategori responsivitet */
-@media (min-width: 768px) {
-  .hlk-cat-grid{ 
-    grid-template-columns: repeat(3, 1fr); 
-  }
-}
-
-@media (min-width: 1024px) {
-  .hlk-cat-grid{ 
-    grid-template-columns: repeat(5, 1fr); 
-  }
-}
-
-/* Ensartet knap styling - opdater kategori labels */
-.hlk-cat > span{
-  position: absolute;
-  left: 12px;
-  right: 12px;
-  bottom: 12px;
-  z-index: 2;
-  background: var(--brand);  /* Brug samme grøn som andre knapper */
-  color: #fff;
-  font-weight: 600;          /* Match andre knapper */
-  font-size: 14px;
-  padding: 10px 16px;        /* Match andre knapper */
-  border-radius: 999px;      /* Match andre knapper */
-  text-align: center;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  transition: all 0.2s ease; /* Smooth hover */
-}
-
-/* Hover effekt på kategori labels */
-.hlk-cat:hover > span{
-  background: #1a5d4f;      /* Mørkere grøn ved hover */
-  transform: translateY(-1px);
-}
-
-/* Ensartet kategori kort størrelse */
-.hlk-cat{
-  position: relative;
-  display: block;
-  width: 100%;
-  aspect-ratio: 4/3;        /* Konsistent proportioner */
-  border-radius: var(--radius);
-  overflow: hidden;
-  text-decoration: none;
-  box-shadow: var(--shadow);
-  transition: transform .2s ease, box-shadow .3s ease;
-  background: #F4EBDD;
-}
-
-.hlk-cat:hover{
-  transform: translateY(-3px);
-  box-shadow: 0 16px 32px rgba(0,0,0,.15);
-}
-
-/* Fix produktscroll spacing */
-.hlk-scroll {
-  display: flex;
-  overflow-x: auto;
-  gap: 20px;
-  padding: 20px 16px;
-  scroll-snap-type: x mandatory;
-  margin-top: 16px;
-}
-
-/* Bedre responsiv kategori grid */
-@media (max-width: 640px) {
-  .hlk-cat-grid{
-    grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
-    padding: 16px;
-  }
-  
-  .hlk-cat > span{
-    font-size: 12px;
-    padding: 8px 12px;
-  }
-}
-
-/* Fix kategori billede fokus */
-.hlk-cat-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  transition: transform 0.3s ease;
-}
-
-.hlk-cat:hover .hlk-cat-img {
-  transform: scale(1.02);
-}
-/* PRODUKTKORT DESIGN RETTELSER - TILFØJ TIL STYLES.CSS */
-
-/* Match produktkort med kategori-stil */
-.hlk-card {
-  background: #fff;
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  overflow: hidden;
-  transition: transform 0.2s ease, box-shadow 0.3s ease;
-  border: none;  /* Fjern evt. border */
-}
-
-.hlk-card:hover {
-  transform: translateY(-3px);  /* Match kategori hover */
-  box-shadow: 0 16px 32px rgba(0,0,0,.15);  /* Match kategori hover */
-}
-
-/* Produktkort layout */
-.hlk-product {
-  display: flex;
-  flex-direction: column;
-  height: 100%;  /* Ensartede højder */
-}
-
-.hlk-product-imgwrap {
-  display: block;
-  overflow: hidden;
-  aspect-ratio: 4/3;  /* Match kategori proportioner */
-  background: #f8f9fa;
-  position: relative;
-}
-
-.hlk-product-imgwrap img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  transition: transform 0.3s ease;
-}
-
-.hlk-product-imgwrap:hover img {
-  transform: scale(1.02);  /* Match kategori hover */
-}
-
-.hlk-product-body {
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-  background: #fff;  /* Sikr hvid baggrund */
-}
-
-.hlk-product-title {
-  margin: 0 0 8px 0;
-  font-size: 1rem;
-  font-weight: 600;
-  line-height: 1.3;
-  color: var(--text);  /* Brug konsistent tekst farve */
-}
-
-.hlk-snippet {
-  margin: 0 0 16px 0;  /* Mere plads til knap */
-  font-size: 0.9rem;
-  color: var(--muted);
-  line-height: 1.4;
-  flex-grow: 1;
-}
-
-/* Match knapper med resten af designet */
-.hlk-btn--ghost {
-  display: inline-block;
-  padding: 10px 16px;  /* Match kategori knapper */
-  border-radius: 999px;
-  background: transparent;
-  color: var(--brand);
-  border: 1px solid var(--brand);
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 14px;  /* Match kategori knapper */
-  transition: all 0.2s ease;
-  margin-top: auto;
-  text-align: center;
-  min-width: 120px;  /* Konsistent knap bredde */
-}
-
-.hlk-btn--ghost:hover {
-  background: var(--brand);  /* Fyld baggrund ved hover */
-  color: #fff;  /* Hvid tekst ved hover */
-  transform: translateY(-1px);
-}
-
-/* Bedre scroll container */
-.hlk-scroll {
-  display: flex;
-  overflow-x: auto;
-  gap: 20px;
-  padding: 20px 16px 32px;  /* Mere bottom padding */
-  scroll-snap-type: x mandatory;
-  margin-top: 8px;
-}
-
-.hlk-scroll > article {
-  flex: 0 0 auto;
-  width: 240px;  /* Lidt bredere kort */
-  scroll-snap-align: start;
-}
-
-/* Bedre scrollbar styling */
-.hlk-scroll::-webkit-scrollbar {
-  height: 6px;
-}
-
-.hlk-scroll::-webkit-scrollbar-track {
-  background: rgba(0,0,0,0.05);
-  border-radius: 3px;
-}
-
-.hlk-scroll::-webkit-scrollbar-thumb {
-  background: var(--brand);
-  border-radius: 3px;
-}
-
-.hlk-scroll::-webkit-scrollbar-thumb:hover {
-  background: #1a5d4f;
-}
-
 /* Mobil tilpasninger */
 @media (max-width: 768px) {
   .hlk-scroll {
@@ -616,5 +411,10 @@ main h3 {
   .hlk-btn--ghost {
     font-size: 13px;
     padding: 8px 14px;
+  }
+  
+  main h3 {
+    font-size: 1.3rem;
+    margin: 24px 0 12px;
   }
 }
