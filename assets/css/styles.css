@@ -195,7 +195,7 @@ img{
 
   /* VIGTIGT: ingen faste px-mål – brug 4:3 som første gang */
   width: 100%;
-  aspect-ratio: 16 / 10;
+  aspect-ratio: 16 / 9;
 
   border-radius: 16px;
   overflow: hidden;
@@ -211,7 +211,7 @@ img{
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(to bottom, rgba(0,0,0,0) 55%, rgba(0,0,0,.38) 100%);
+  background: linear-gradient(to bottom, rgba(0,0,0,0) 48%, rgba(0,0,0,.38) 100%);
   pointer-events: none;
   z-index: 1;                    /* under labelen */
 }
@@ -295,6 +295,12 @@ img{
   text-overflow: clip;
 
 }
+/* Finjustér billed-fokus pr. kategori (lavere % = mere op, højere % = mere ned) */
+.hlk-cat[href*="godbidder"] .hlk-cat-img  { object-position: center 45%; }
+.hlk-cat[href*="hundesenge"] .hlk-cat-img { object-position: center 40%; }
+.hlk-cat[href*="seler"] .hlk-cat-img      { object-position: center 55%; }
+.hlk-cat[href*="foder"] .hlk-cat-img      { object-position: center 50%; }
+/* .hlk-cat[href*="vandskaale"] .hlk-cat-img { object-position: center 50%; } */
 
 
 
