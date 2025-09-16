@@ -218,44 +218,66 @@ img{
 .hlk-cat{
   position: relative;
   display: block;
-  width: 150px;
-  height: 150px;
+  width: 100%;
+  aspect-ratio: 1 / 1;           /* square kort i stedet for fixed px */
   border-radius: 16px;
   overflow: hidden;
   text-decoration: none;
   box-shadow: 0 6px 14px rgba(0,0,0,.08);
   transition: transform .15s ease, box-shadow .2s ease;
-  background: #F4EBDD; /* beige fallback bag billedet */
+  background: #F4EBDD;           /* beige fallback bag billedet */
 }
 
 .hlk-cat-img{
+  position: absolute;
+  inset: 0;                      /* top:0; right:0; bottom:0; left:0 */
   width: 100%;
   height: 100%;
   display: block;
-  object-fit: cover;      /* fylder kortet uden at strække */
+  object-fit: cover;             /* fylder kortet uden at strække */
 }
 
-/* Blød mørk gradient nederst for læsbar label */
+/* Mørk bund-gradient over billedet */
 .hlk-cat::after{
   content: "";
   position: absolute;
   inset: 0;
   background: linear-gradient(to bottom, rgba(0,0,0,0) 55%, rgba(0,0,0,.38) 100%);
   pointer-events: none;
+  z-index: 1;                    /* under labelen */
 }
 
+/* Label (grøn pille) – altid synlig og centreret */
 .hlk-cat > span{
   position: absolute;
   left: 50%;
   bottom: 10px;
   transform: translateX(-50%);
+  z-index: 2;                    /* over gradient */
   background: #1E6A57;
   color: #fff;
   font-weight: 700;
-  padding: 8px 12px;
+  padding: 10px 14px;
   border-radius: 999px;
-  box-shadow: inset 0 -3px 0 rgba(0,0,0,.15);
+  max-width: calc(100% - 16px);  /* beskyt mod at gå ud over kanten */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
+
+/* Grid: lidt større kort på tværs af skærme */
+.hlk-cat-grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 18px;
+  padding: 0 16px 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+@media (min-width: 1200px){
+  .hlk-cat-grid{ grid-template-columns: repeat(5, 1fr); }
+}
+
 
 
 
