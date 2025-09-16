@@ -48,9 +48,158 @@
     <!-- ===== HERO ===== -->
     <section class="hlk-hero">
       <div class="hlk-hero-media">
-        <!-- Brug hero.png for at undgå æ/tegnproblemer -->
-        <img src="./assets/faerdighero.jpg" alt="Glade hunde i nordisk hjem" class="hlk-hero-
+        <!-- RETTET: Billedsti -->
+        <img src="./assets/faerdighero.jpg" alt="Glade hunde i nordisk hjem" class="hlk-hero-img" />
+        <div class="hlk-hero-overlay"></div>
+        <div class="hlk-hero-content">
+          <h1>Velkommen til Hundelykke</h1>
+          <p>Luksus hundeudstyr i nordisk stil — hurtig levering i hele Danmark.</p>
+          <a href="#produkter" class="hlk-btn">Shop nu</a>
+        </div>
+      </div>
+    </section>
 
+<!-- RETTET: Alle billedstier med ./ -->
+<nav class="hlk-cat-grid" aria-label="Shop efter kategorier">
+  <a class="hlk-cat" href="/produkter.html?kat=godbidder">
+    <img class="hlk-cat-img" src="./assets/cat-godbidder.jpg" alt="Godbidder">
+    <span>Godbidder</span>
+  </a>
+
+  <a class="hlk-cat" href="/produkter.html?kat=hundesenge">
+    <img class="hlk-cat-img" src="./assets/cat-hundesenge.jpg" alt="Hundesenge">
+    <span>Hundesenge</span>
+  </a>
+
+  <a class="hlk-cat" href="/produkter.html?kat=seler">
+    <img class="hlk-cat-img" src="./assets/cat-seler.jpg" alt="Seler">
+    <span>Seler</span>
+  </a>
+
+  <a class="hlk-cat" href="/produkter.html?kat=foder">
+    <img class="hlk-cat-img" src="./assets/cat-foder.jpg" alt="Foder">
+    <span>Foder</span>
+  </a>
+
+  <a class="hlk-cat" href="/produkter.html?kat=vandskaale">
+    <img class="hlk-cat-img" src="./assets/cat-vandskaale.jpg" alt="Vandskåle">
+    <span>Vandskåle</span>
+  </a>
+</nav>
+
+<h3>Udvalgte produkter</h3>
+
+<div class="hlk-scroll" aria-label="Udvalgte produkter (vandret liste)">
+
+  <!-- Produkt 1 — Hundeseng -->
+  <article class="hlk-card hlk-product" style="min-width: 240px;">
+    <a class="hlk-product-imgwrap" href="/produkt-hundeseng.html">
+      <img src="./assets/NUZZLE-Sofa-Bed.jpg" alt="Blød og støttende hundeseng" loading="lazy" />
+    </a>
+    <div class="hlk-product-body">
+      <h4 class="hlk-product-title">
+        <a href="/produkt-hundeseng.html">Luksus hundeseng (Beige)</a>
+      </h4>
+      <p class="hlk-snippet">Blød, støttende og i rolig nordisk farve.</p>
+      <a class="hlk-btn hlk-btn--ghost" href="/produkt-hundeseng.html">Se detaljer</a>
+    </div>
+  </article>
+
+  <!-- Produkt 2 — Vandskål -->
+  <article class="hlk-card hlk-product" style="min-width: 240px;">
+    <a class="hlk-product-imgwrap" href="/produkt-vandskaal.html">
+      <img src="./assets/BAMBOO-Dog-Bowl.jpg" alt="Bambus vandskål — sæt i tre størrelser" loading="lazy" />
+    </a>
+    <div class="hlk-product-body">
+      <h4 class="hlk-product-title">
+        <a href="/produkt-vandskaal.html">Bambus vandskål (sæt)</a>
+      </h4>
+      <p class="hlk-snippet">Minimalistisk design og slidstærk finish.</p>
+      <a class="hlk-btn hlk-btn--ghost" href="/produkt-vandskaal.html">Se detaljer</a>
+    </div>
+  </article>
+
+  <!-- Produkt 3 — Foder -->
+  <article class="hlk-card hlk-product" style="min-width: 240px;">
+    <a class="hlk-product-imgwrap" href="/produkt-foder.html">
+      <img src="./assets/Dry-Food-for-Dogs-Adult-Chicken.jpg" alt="Koldpresset hundefoder — Adult Chicken" loading="lazy" />
+    </a>
+    <div class="hlk-product-body">
+      <h4 class="hlk-product-title">
+        <a href="/produkt-foder.html">Koldpresset foder (Adult Chicken)</a>
+      </h4>
+      <p class="hlk-snippet">Skånsomt koldpresset — høj optagelse og lækker smag.</p>
+      <a class="hlk-btn hlk-btn--ghost" href="/produkt-foder.html">Se detaljer</a>
+    </div>
+  </article>
+
+  <!-- Produkt 4 — Sele -->
+  <article class="hlk-card hlk-product" style="min-width: 240px;">
+    <a class="hlk-product-imgwrap" href="/produkt-sele.html">
+      <img src="./assets/Soft-Harness-Puppia.jpg" alt="Puppia Soft Harness — komfortsele" loading="lazy" />
+    </a>
+    <div class="hlk-product-body">
+      <h4 class="hlk-product-title">
+        <a href="/produkt-sele.html">Komfortsele (Puppia)</a>
+      </h4>
+      <p class="hlk-snippet">Let, åndbar og skånsom — perfekt til hverdagsbrug.</p>
+      <a class="hlk-btn hlk-btn--ghost" href="/produkt-sele.html">Se detaljer</a>
+    </div>
+  </article>
+
+  <!-- Produkt 5 — Godbidder -->
+  <article class="hlk-card hlk-product" style="min-width: 240px;">
+    <a class="hlk-product-imgwrap" href="/produkt-godbidder.html">
+      <img src="./assets/dental.sticks-coconut.jpg" alt="Dental Coconut Sticks — tandpleje godbidder" loading="lazy" />
+    </a>
+    <div class="hlk-product-body">
+      <h4 class="hlk-product-title">
+        <a href="/produkt-godbidder.html">Dental Coconut Sticks</a>
+      </h4>
+      <p class="hlk-snippet">Sprøde tandpleje-godbidder med kokos — frisk ånde.</p>
+      <a class="hlk-btn hlk-btn--ghost" href="/produkt-godbidder.html">Se detaljer</a>
+    </div>
+  </article>
+
+</div>
+
+    <!-- ===== OM HUNDELYKKE ===== -->
+    <section class="hlk-section hlk-about">
+      <div class="hlk-wrap">
+        <h2>Om Hundelykke</h2>
+        <p class="hlk-lede">
+        </p>
+
+        <div class="hlk-about-grid">
+          <div class="hlk-about-point">
+            <h3>Håndplukket sortiment</h3>
+            <p>Hos Hundelykke.dk finder du kun produkter, vi nøje har udvalgt for deres kvalitet, funktionalitet og design. Vi går efter det bedste til hunde og deres ejere — fra bløde, komfortable senge til slidstærke seler og praktiske tilbehør, der holder i hverdagen. Vores sortiment er skabt til at give både dig og din hund en oplevelse af luksus og tryghed</p>
+          </div>
+          <div class="hlk-about-point">
+            <h3>Hurtig levering</h3>
+            <p>Hos Hundelykke.dk pakker og sender vi alle ordrer med omhu, så du og din hund hurtigt kan få glæde af jeres produkter. Vi tilbyder hurtig levering inden for 48 timer i hele Danmark — direkte til din dør eller pakkeshop.</p>
+          </div>
+          <div class="hlk-about-point">
+            <h3>Om Hundelykke</h3>
+            <p>Hos Hundelykke.dk brænder vi for kvalitet, tryghed og glæden ved at forkæle menneskets bedste ven. Med en baggrund som uddannet slagter og mere end 12 års erfaring med at udvikle hundegodbidder og røgede ben, har vi et skarpt øje for, hvad der gør en forskel for hundes sundhed og trivsel.</p>
+
+            <p>Vi har set, at alt for mange produkter på markedet ikke lever op til de simple krav, enhver hundeejer med omtanke bør kunne stille til det, deres hund spiser. Derfor udvælger vi kun det bedste — et sortiment, hvor kvalitet, smag og sikkerhed altid er i fokus.</p>
+
+            <p>Vores mission er enkel: at give dig og din hund et sortiment, du kan stole på — så hver bid, hver godbid og hvert produkt lever op til de højeste standarder.</p>
+          </div>
+        </div>
+
+        <div class="hlk-cta-row">
+          <a href="#produkter" class="hlk-btn">Se produkter</a>
+          <a href="#" class="hlk-btn-ghost">Læs mere</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+</body>
+</html>
 
 
 
