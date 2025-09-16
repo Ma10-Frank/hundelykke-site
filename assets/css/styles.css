@@ -225,16 +225,15 @@ img{
   border-radius: 16px;
   overflow: hidden;
   text-decoration: none;
-  background: linear-gradient(to bottom, rgba(0,0,0,0) 55%, rgba(0,0,0,.38) 100%),
-              var(--img) center/cover no-repeat;
 
-  /* billede + mørk gradient nederst (giver læsbar label) */
+  /* ét samlet baggrundslag: mørk bund-gradient + selve billedet fra --img */
   background:
     linear-gradient(to bottom, rgba(0,0,0,0) 55%, rgba(0,0,0,.38) 100%),
     var(--img) center/cover no-repeat;
 
   transition: transform .15s ease, box-shadow .2s ease;
 }
+
 /* ===== Kategori grid layout ===== */
 .hlk-cat-grid {
   display: grid;
